@@ -1,18 +1,19 @@
 # Site settings
-title: "Paper Jekyll Theme"
+title: "yg log --graph --oneline --all"
 description: > 
-  Write a description of your website here.
+  프로그래밍, AI논문 리뷰, 툴, 환경등을 소개합니다.
 
-author: Johnny Appleseed
-email: johnny@appleseed.com
-twitter_username: _HairForceOne
-github_username: mkchoi212
+author: yugeon
+email: 23010524@sju.ac.kr
+github_username: yg2127
 
 baseurl: "" # the subpath of your site, e.g. /blog
+lang: ko-KR
+
+timezone: Asia/Seoul
 url: "https://yg2127.github.io" # the base hostname & protocol for your site
 
-google_analytics_id: UA-1111111111-1
-disqus_id:
+
 
 # Build settings
 include: [_pages]

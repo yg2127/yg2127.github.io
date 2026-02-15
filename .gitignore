@@ -5,3 +5,7 @@ _site/
 .DS_Store
 .bundle
 vendor/*
+.jekyll-cache/
+CLAUDE.md
+docs/
+.claude/

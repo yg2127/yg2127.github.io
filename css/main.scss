@@ -28,3 +28,36 @@
 @import
     'vendor/highlight';
 
+// Stack page - toggle style
+details {
+    margin-bottom: 1.5rem;
+    border-bottom: $m-border;
+    padding-bottom: 1rem;
+
+    summary {
+        cursor: pointer;
+        font-size: 1.8rem;
+        padding: 0.7rem 0;
+        list-style: none;
+
+        i {
+            font-size: 2rem;
+            vertical-align: middle;
+            margin-right: 0.3rem;
+        }
+
+        &::before {
+            content: '▸ ';
+            color: $c-accent__blue;
+        }
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    &[open] summary::before {
+        content: '▾ ';
+    }
+}
+

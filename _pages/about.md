@@ -3,20 +3,21 @@ layout: content
 title: About
 permalink: /about/
 ---
-Hi, I'm Johnny and I live in the Shire. Thanks for visiting my site.
 
-I program and write about software development when I have the time. More information can be found through <a href="https://www.linkedin.com/" data-network="LinkedIn" data-proofer-ignore>LinkedIn.</a>
+안녕하세요, 세종대학교 인공지능학과에 재학 중인 **유건**입니다.
 
-----
-
-## The Website
-This site was made on an [Apple MBP](https://www.apple.com/) powered by [Jekyll](https://jekyllrb.com) on [Github Pages](https://pages.github.com).
-I'd love to hear your feedback on this site and my work.
+Python, 데이터 분석, 머신러닝/딥러닝을 공부하고 있으며, 배운 내용을 이 블로그에 정리하고 있습니다.
 
 ----
 
-## Etcetera
+## Contact
 
-- [Instagram](https://www.instagram.com/) for 📸
-- [Facebook](https://www.facebook.com/) for 🕺
+- Email: [23010524@sju.ac.kr](mailto:23010524@sju.ac.kr)
+- GitHub: [github.com/yg2127](https://github.com/yg2127)
+- LinkedIn: [linkedin.com/in/건-유-358168391](https://www.linkedin.com/in/건-유-358168391)
 
+----
+
+## Website
+
+이 사이트는 [Jekyll](https://jekyllrb.com)과 [Paper Theme](https://github.com/mkchoi212/paper-jekyll-theme)을 사용하여 [Github Pages](https://pages.github.com)에서 운영되고 있습니다.
