@@ -11,15 +11,15 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Fetch recent commits from GitHub API
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate commit graph data
         run: |
           mkdir -p _data
-          curl -s -H "Authorization: token $GH_TOKEN" \
-            "https://api.github.com/repos/${{ github.repository }}/commits?per_page=20" \
-            | jq '[.[] | {hash: .sha[0:7], message: (.commit.message | split("\n")[0]), date: .commit.author.date}]' \
+          git log --graph --oneline --all -30 \
+            | jq -R . \
+            | jq -s 'map({line: .})' \
             > _data/commits.json
 
       - name: Commit and push if changed

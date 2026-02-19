@@ -1,27 +1,20 @@
 [
   {
-    "hash": "00ab7c2",
-    "message": "feat: add Git-themed header background with terminal and grass styles",
-    "date": "2026-02-19T08:29:20Z"
+    "line": "* b53bd07 chore: update commits data"
   },
   {
-    "hash": "8a2e00e",
-    "message": "feat: customize blog with personal info, Python series, and Stack page",
-    "date": "2026-02-15T08:29:10Z"
+    "line": "* 00ab7c2 feat: add Git-themed header background with terminal and grass styles"
   },
   {
-    "hash": "272b4c6",
-    "message": "fix: update baseurl and url for GitHub Pages deployment",
-    "date": "2026-02-15T03:48:08Z"
+    "line": "* 8a2e00e feat: customize blog with personal info, Python series, and Stack page"
   },
   {
-    "hash": "0be93bf",
-    "message": "feat: apply Jekyll theme with layouts, styles, and sample posts",
-    "date": "2026-02-15T03:41:28Z"
+    "line": "* 272b4c6 fix: update baseurl and url for GitHub Pages deployment"
   },
   {
-    "hash": "9307ff7",
-    "message": "Initial commit",
-    "date": "2026-02-14T13:42:31Z"
+    "line": "* 0be93bf feat: apply Jekyll theme with layouts, styles, and sample posts"
+  },
+  {
+    "line": "* 9307ff7 Initial commit"
   }
 ]

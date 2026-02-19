@@ -2,11 +2,10 @@
   {% if site.header_style == "terminal" %}
   <div class="c-header-bg c-header-bg--terminal" aria-hidden="true">
     <div class="c-header-bg__scroll">
-      {% for commit in site.data.commits %}
-      <span class="c-header-bg__line">* <em>{{ commit.hash }}</em> {{ commit.message }}</span>
+      {% for i in (1..3) %}
+      {% for item in site.data.commits %}
+      <span class="c-header-bg__line">{{ item.line }}</span>
       {% endfor %}
-      {% for commit in site.data.commits %}
-      <span class="c-header-bg__line">* <em>{{ commit.hash }}</em> {{ commit.message }}</span>
       {% endfor %}
     </div>
   </div>
@@ -20,8 +19,10 @@
     if (!commits) return;
     var counts = {};
     commits.forEach(function(c) {
-      var d = c.date.substring(0, 10);
-      counts[d] = (counts[d] || 0) + 1;
+      if (c.date) {
+        var d = c.date.substring(0, 10);
+        counts[d] = (counts[d] || 0) + 1;
+      }
     });
     var graph = document.getElementById('commit-graph');
     if (!graph) return;
