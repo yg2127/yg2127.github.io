@@ -1,0 +1,22 @@
+[
+  {
+    "hash": "8a2e00e",
+    "message": "feat: customize blog with personal info, Python series, and Stack page",
+    "date": "2026-02-15T17:29:10+09:00"
+  },
+  {
+    "hash": "272b4c6",
+    "message": "fix: update baseurl and url for GitHub Pages deployment",
+    "date": "2026-02-15T12:48:08+09:00"
+  },
+  {
+    "hash": "0be93bf",
+    "message": "feat: apply Jekyll theme with layouts, styles, and sample posts",
+    "date": "2026-02-15T12:41:28+09:00"
+  },
+  {
+    "hash": "9307ff7",
+    "message": "Initial commit",
+    "date": "2026-02-14T22:42:31+09:00"
+  }
+]

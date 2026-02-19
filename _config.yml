@@ -25,3 +25,6 @@ sass:
 
 exclude: [vendor]
 
+# Header background style: "terminal" (git log) or "grass" (contribution graph)
+header_style: "terminal"
+

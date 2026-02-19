@@ -1,4 +1,49 @@
 <header class="c-page__header">
+  {% if site.header_style == "terminal" %}
+  <div class="c-header-bg c-header-bg--terminal" aria-hidden="true">
+    <div class="c-header-bg__scroll">
+      {% for commit in site.data.commits %}
+      <span class="c-header-bg__line">* <em>{{ commit.hash }}</em> {{ commit.message }}</span>
+      {% endfor %}
+      {% for commit in site.data.commits %}
+      <span class="c-header-bg__line">* <em>{{ commit.hash }}</em> {{ commit.message }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% elsif site.header_style == "grass" %}
+  <div class="c-header-bg c-header-bg--grass" aria-hidden="true">
+    <div class="c-header-bg__graph" id="commit-graph"></div>
+  </div>
+  <script>
+  (function() {
+    var commits = {{ site.data.commits | jsonify }};
+    if (!commits) return;
+    var counts = {};
+    commits.forEach(function(c) {
+      var d = c.date.substring(0, 10);
+      counts[d] = (counts[d] || 0) + 1;
+    });
+    var graph = document.getElementById('commit-graph');
+    if (!graph) return;
+    var today = new Date();
+    var day = today.getDay();
+    var totalDays = 26 * 7 + day + 1;
+    var startDate = new Date(today);
+    startDate.setDate(startDate.getDate() - totalDays + 1);
+    for (var i = 0; i < totalDays; i++) {
+      var d = new Date(startDate);
+      d.setDate(d.getDate() + i);
+      var key = d.toISOString().substring(0, 10);
+      var count = counts[key] || 0;
+      var cell = document.createElement('div');
+      cell.className = 'c-header-bg__cell';
+      cell.setAttribute('data-level', Math.min(count, 4));
+      graph.appendChild(cell);
+    }
+  })();
+  </script>
+  {% endif %}
+
   <h1><code>{{ site.title}}</code></h1>
   {% if page.title == 'Home' %}
   <h1>{{ site.description }}</h1>
