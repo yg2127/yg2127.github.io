@@ -1,5 +1,11 @@
 [
   {
+    "line": "* ea2284c feat: replace Python posts with Obsidian-based content and add subcategory toggle"
+  },
+  {
+    "line": "* 4e95e3d chore: update commits data"
+  },
+  {
     "line": "* cd3b9d1 feat: add SQL 입문 1강 blog post"
   },
   {
