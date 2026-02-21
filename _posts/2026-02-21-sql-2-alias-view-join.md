@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SQL 입문 2강 - Alias, VIEW, CASE, 윈도우 함수, JOIN"
+title: "SQLite 2강 - Alias, VIEW, CASE, 윈도우 함수, JOIN"
 description: "컬럼 별명, 뷰, 조건절, 날짜 함수, 집계 함수, 그룹화, 윈도우 함수, JOIN, UNION"
 date: 2026-02-21
 category: "SQL"

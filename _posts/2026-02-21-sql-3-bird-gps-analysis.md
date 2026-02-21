@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SQL 입문 3강 - 조류 GPS 데이터 분석"
+title: "SQLite 3강 - 조류 GPS 데이터 분석"
 description: "CSV 마이그레이션, rowid, count distinct, substr, GROUP BY, JOIN 실습"
 date: 2026-02-21
 category: "SQL"
