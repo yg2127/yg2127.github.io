@@ -95,6 +95,62 @@ task :post do
   end
 end # task :post
 
+VAULT_PATH = File.expand_path("~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault1")
+
+# Usage: rake from_obsidian file="Project/구름 딥다이브/SQL/SQLite 3강.md" title="SQL 입문 3강" category="SQL" tags="sql,sqlite" [date="2026-02-22"] [slug="sql-3-topic"]
+desc "Convert Obsidian note to blog post (strips Obsidian front matter, adds Jekyll front matter)"
+task :from_obsidian do
+  file = ENV["file"] || abort(red("Error: file is required. Usage: rake from_obsidian file=\"path/in/vault\""))
+  title = ENV["title"] || abort(red("Error: title is required."))
+  category = ENV["category"] || ""
+  tags = ENV["tags"] || ""
+  description = ENV["description"] || ""
+  slug = ENV["slug"] || title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+
+  source_path = File.join(VAULT_PATH, file)
+  abort(red("Error: File not found: #{source_path}")) unless File.exist?(source_path)
+
+  begin
+    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
+  rescue => e
+    abort(red("Error - date format must be YYYY-MM-DD"))
+  end
+
+  filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Overwrite?", ['y', 'n']) == 'n'
+  end
+
+  content = File.read(source_path, encoding: 'utf-8')
+
+  # Strip Obsidian front matter
+  content = content.sub(/\A---.*?---\s*/m, '')
+
+  # Strip Obsidian Tasks section
+  content = content.sub(/\n## Tasks\n.*/m, '')
+
+  # Strip leading "## 내용" header if present
+  content = content.sub(/\A\s*## 내용\s*\n/, '')
+
+  puts cyan "Creating post from Obsidian: #{filename}"
+  open(filename, 'w') do |post|
+    post.puts "---"
+    post.puts "layout: post"
+    post.puts "title: \"#{title}\""
+    post.puts "description: \"#{description}\""
+    post.puts "date: #{date}"
+    post.puts "category: \"#{category}\"" unless category.empty?
+    post.puts "tags: #{tags}" unless tags.empty?
+    post.puts "comments: true"
+    post.puts "---"
+    post.puts ""
+    post.puts content.strip
+  end
+
+  puts green "Done! Post created at #{filename}"
+  puts yellow "Note: TIL 3섹션 구조(잘한 점/개선점/배운 점)는 직접 추가하세요."
+end
+
 #
 ## General support functions
 #

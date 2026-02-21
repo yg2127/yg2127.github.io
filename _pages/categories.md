@@ -12,8 +12,9 @@ permalink: /stack/
 {% elsif cat_name == "Pandas & Plotly" %}{% assign icon = "devicon-pandas-plain colored" %}
 {% elsif cat_name == "Streamlit" %}{% assign icon = "devicon-streamlit-plain colored" %}
 {% elsif cat_name == "SQL" %}{% assign icon = "devicon-azuresqldatabase-plain colored" %}
+{% elsif cat_name == "Deep Learning" %}{% assign icon = "devicon-pytorch-original colored" %}
 {% endif %}
-{% if cat_name == "Python" %}
+{% if cat_name == "Python" or cat_name == "Deep Learning" %}
 <details>
 <summary><strong><i class="{{ icon }}"></i> {{ cat_name }}</strong> ({{ category[1] | size }})</summary>
   {% assign subcats = category[1] | map: "subcategory" | uniq | sort %}
