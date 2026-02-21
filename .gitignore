@@ -8,4 +8,5 @@ vendor/*
 .jekyll-cache/
 CLAUDE.md
 docs/
-.claude/
+.claude/*
+!.claude/commands/
