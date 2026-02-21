@@ -1,5 +1,11 @@
 [
   {
+    "line": "* 789e36c feat: add SQL 입문 3강 blog post"
+  },
+  {
+    "line": "* d276468 chore: update commits data"
+  },
+  {
     "line": "* 6b4cba0 chore: add custom slash commands and allow .claude/commands/ in gitignore"
   },
   {
