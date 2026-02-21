@@ -1,5 +1,11 @@
 [
   {
+    "line": "* 6b4cba0 chore: add custom slash commands and allow .claude/commands/ in gitignore"
+  },
+  {
+    "line": "* ede665f chore: update commits data"
+  },
+  {
     "line": "* c7a59db feat: add CNN 2~6강 blog posts and Deep Learning category"
   },
   {
