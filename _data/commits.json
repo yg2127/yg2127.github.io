@@ -1,5 +1,11 @@
 [
   {
+    "line": "* 889e903 fix: rename SQL post titles from \"SQL 입문\" to \"SQLite\""
+  },
+  {
+    "line": "* 9229481 chore: update commits data"
+  },
+  {
     "line": "* 789e36c feat: add SQL 입문 3강 blog post"
   },
   {
