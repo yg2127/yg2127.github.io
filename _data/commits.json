@@ -1,5 +1,11 @@
 [
   {
+    "line": "* 255bce0 feat: ResNet 논문 리뷰 포스트 추가 및 블로그 톤 개편"
+  },
+  {
+    "line": "* cd174d3 chore: update commits data"
+  },
+  {
     "line": "* 889e903 fix: rename SQL post titles from \"SQL 입문\" to \"SQLite\""
   },
   {
