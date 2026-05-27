@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CNN 2강 - 이미지 분류와 최근접 이웃 분류기"
-description: "이미지 표현, 분류 문제, Nearest Neighbor, KNN, Linear Classification"
+description: "KNN이 이미지에서 왜 안 되는지, Linear Classification이 왜 필요한지 — 처음 배우면서 헷갈렸던 것들"
 date: 2026-02-21
 category: "Deep Learning"
 subcategory: "CNN"
@@ -9,112 +9,134 @@ tags: deep-learning, cnn, image-classification, knn
 comments: true
 ---
 
-## 잘한 점
+## 들어가며
 
-### 상황 1.
-
-- **상황**: CNN 팀스터디에서 이미지 분류의 기초 개념을 학습했다
-- **액션**: L1, L2 거리 메트릭의 차이를 직접 비교하면서 정리했다
-- **칭찬**: 수식뿐 아니라 직관적으로 이해하려고 노력한 점이 좋았다
+CNN 스터디 2강에서는 이미지 분류의 기초를 배웠다. 솔직히 처음에는 "이미지를 분류한다"는 게 뭐가 그렇게 어려운 건지 감이 안 잡혔다. 사람 눈에는 고양이 사진이 고양이인 게 너무 당연한데, 컴퓨터한테는 그냥 숫자 배열일 뿐이라는 걸 이번에 제대로 체감했다.
 
 ---
 
-## 개선점
+## 이미지는 결국 숫자 배열이다
 
-### 상황 1.
+이미지는 3차원 배열로 표현된다. 예를 들어 300 $\cdot$ 100 픽셀의 컬러 이미지는 300 $\cdot$ 100 $\cdot$ 3 (RGB 채널)의 숫자 덩어리다.
 
-- **문제**: KNN과 Linear Classification의 차이를 명확히 설명하기 어렵다
-- **원인**: 각 알고리즘의 장단점을 비교 정리하지 않았다
-- **액션플랜**: KNN vs Linear Classification 비교표를 만들어 정리하기
+여기서 **semantic gap**이라는 개념이 등장하는데, 사람이 "고양이"로 인식하는 것과 컴퓨터가 보는 픽셀값 사이에는 엄청난 간극이 있다는 뜻이다. 처음에는 "그냥 패턴 매칭하면 되는 거 아닌가?" 싶었는데, 아래 challenge들을 보고 생각이 바뀌었다:
+
+- **camera pose** — 같은 물체인데 찍는 각도가 다르면 완전 다른 이미지가 됨
+- **illumination** — 조명만 바뀌어도 픽셀값이 확 달라짐
+- **deformation** — 고양이가 웅크리면 서 있을 때와 완전 다른 모양
+- **occlusion** — 물체가 가려져 있으면?
+- **background clutter** — 배경과 물체가 비슷한 색이면?
+- **intraclass variation** — 같은 "의자"인데 생김새가 천차만별
+
+이걸 보면 하드코딩으로 이미지 분류기를 만드는 건 불가능하다는 결론이 나온다. 그래서 **데이터 기반 접근**이 필요하다.
+
+```python
+def train(train_images, train_labels):
+    #build a model for images -> labels
+    return model
+
+def predict(model, test_images):
+    #predict test_labels using the model
+    return test_labels
+```
+
+모델을 학습한 후에 그 모델에 기반하여 예측한다. 이 패러다임이 딥러닝의 출발점이다.
 
 ---
 
-## 배운 점
+## Nearest Neighbor Classifier
 
-### 상황 1. Pipeline과 이미지 표현
+가장 단순한 데이터 기반 분류기가 NN(Nearest Neighbor)이다. CIFAR-10 데이터셋으로 학습하는데, 원리는 간단하다 — 테스트 이미지와 가장 비슷한 학습 이미지를 찾아서 그 라벨을 붙여주는 것이다.
 
-- **배움**: 이미지는 3차원 배열로 표현된다 (RGB처럼) 300 $\cdot$ 100 $\cdot$ 3 (300 x 100 픽셀에 한 픽셀마다 RGB값). 이미지 분류에는 semantic gap이 존재한다. 이미지 분류의 challenge는 다음과 같다:
-  - camera pose (관점, 시각)
-  - illumination (조명)
-  - Deformation (변형)
-  - Occlusion (은폐)
-  - background clutter (배경과 유사함)
-  - Intraclass variation (동일 객체의 다양성 문제)
-- **의미**: 이미지 분류가 왜 어려운 문제인지, 어떤 요소들이 분류를 어렵게 만드는지 이해하는 것이 중요하다
+"비슷하다"를 측정하기 위해 **L1 distance**를 사용한다:
 
-### 상황 2. 데이터 기반 접근
+$$L1\ distance,\ d_1(I_{1},I_{2}) = \sum\limits_{p}|I_{1}^{p}-I_{2}^{p}|$$
 
-- **배움**: 하드코딩 알고리즘으로는 이미지 분류가 불가능하다. 따라서 데이터에 기반한 접근이 필요하다. 많은 데이터를 학습한 후 분류하는 방식이다.
+```python
+import numpy as np
 
-  ```python
-  def train(train_images, train_labels):
-      #build a model for images -> labels
-      return model
+class NearestNeighbor:
+    def __init__(self):
+        pass
 
-  def predict(model, test_images):
-      #predict test_labels using the model
-      return test_labels
-  ```
+    def train(self, X, y):
+        # X is N times D where each row is an example. Y is 1-dimension of size N
+        self.Xtr = X
+        self.ytr = y
 
-  모델을 학습한 후에 그 모델에 기반하여 예측한다.
-- **의미**: 하드코딩이 아닌 데이터 기반 학습이라는 패러다임을 이해하는 것이 딥러닝의 출발점이다
+    def predict(self, X):
+        # X is N times D where each row is an example we wish to predict label for
+        num_test = X.shape[0]
+        # lets make sure that the output type matches the input type
+        Ypred = np.zeros(num_test, dtype = self.ytr.dtype)
 
-### 상황 3. Nearest Neighbor Classifier
+        # loop over all test rows
+        for i in xrange(num_test):
+            # find the nearest training image to the i'th test image
+            # using the L1 distance (sum of absolute value difference)
+            distances = np.sum(np.abs(self.Xtr - X[i,:]), axis = 1)
+            min_index = np.argmin(distances)
+            # get the index with smallest distance
+            Ypred[i] = self.ytr[min_index]
+            # predict the label of the nearest example
 
-- **배움**: CIFAR-10 데이터셋으로 NN 모델을 학습한다. 이미지 비교를 위해 L1 distance를 사용한다.
+        return Ypred
+```
 
-  $$L1\ distance,\ d_1(I_{1},I_{2}) = \sum\limits_{p}|I_{1}^{p}-I_{2}^{p}|$$
+이 코드를 보면서 "어?" 했던 게, train 함수가 하는 일이 그냥 **데이터를 통째로 저장하는 것**밖에 없다. 학습이라기보다 기억이다. 그래서 예측할 때 모든 학습 데이터와 비교해야 하니까, 데이터가 늘어나면 분류 시간이 선형적으로 증가한다.
 
-  ```python
-  import numpy as np
+---
 
-  class NearestNeighbor:
-      def __init__(self):
-          pass
+## L2 Distance와 K-Nearest Neighbor
 
-      def train(self, X, y):
-          # X is N times D where each row is an example. Y is 1-dimension of size N
-          self.Xtr = X
-          self.ytr = y
+L1 말고 **L2 (Euclidean) distance**도 쓸 수 있다:
 
-      def predict(self, X):
-          # X is N times D where each row is an example we wish to predict label for
-          num_test = X.shape[0]
-          # lets make sure that the output type matches the input type
-          Ypred = np.zeros(num_test, dtype = self.ytr.dtype)
+$$Euclidean,\ d_{2}(I_{1}, I_{2}) = \sqrt{\sum\limits_{p}(I_{1}^{p}-I_{2}^{p})^{2}}$$
 
-          # loop over all test rows
-          for i in xrange(num_test):
-              # find the nearest training image to the i'th test image
-              # using the L1 distance (sum of absolute value difference)
-              distances = np.sum(np.abs(self.Xtr - X[i,:]), axis = 1)
-              min_index = np.argmin(distances)
-              # get the index with smallest distance
-              Ypred[i] = self.ytr[min_index]
-              # predict the label of the nearest example
+그리고 가장 가까운 1개가 아니라 **K개**의 이웃을 보고 다수결로 판단하는 게 K-Nearest Neighbor이다.
 
-          return Ypred
-  ```
+여기서 중요한 게 **하이퍼파라미터** 개념이다. 어떤 distance를 쓸지, K를 몇으로 할지는 사람이 정해야 한다. 이걸 정하는 방법으로는:
+- training data의 20%를 **validation set**으로 분리해서 실험
+- 또는 데이터를 잘게 나눠서 **cross validation** 수행
 
-  train에서는 모든 train 데이터를 메모리 상에 올려서 기억하게 한다. 예측에서는 for문 안에서 테스트 데이터셋 이미지를 입력받고 distance = L1, min_index는 거리가 가장 작은 train set 중 이미지를 찾게 되는 것이다. 데이터셋 크기가 늘어날수록 분류 시간은 선형적으로 증가하게 된다. 메모리에 올라가는 데이터셋 양이 그만큼 많아지게 되기 때문이다.
-- **의미**: Nearest Neighbor의 동작 원리와 한계(선형적 시간 증가)를 이해하면, 더 효율적인 분류기가 왜 필요한지 알 수 있다
+그런데 결론적으로, **KNN은 이미지 분류에서 절대 쓰지 않는다.** 이미지가 조금만 이동하거나, 가리거나, 어두워져도 L1/L2 distance는 "같은 물체"라고 판단하지 못하기 때문이다.
 
-### 상황 4. L2 Distance와 K-Nearest Neighbor
+---
 
-- **배움**: L1 말고 L2 (Euclidean) distance도 사용할 수 있다.
+## Linear Classification
 
-  $$Euclidean,\ d_{2}(I_{1}, I_{2}) = \sqrt{\sum\limits_{p}(I_{1}^{p}-I_{2}^{p})^{2}}$$
+그래서 등장하는 게 **Linear Classification**이다. Neural Network의 기본이 되는 **parametric approach**로, 파라미터(가중치)를 학습해서 분류한다:
 
-  K-Nearest Neighbor는 K개의 이미지와 가장 가까운 이미지를 분류하는 기법이다. 어떤 distance를 사용하느냐, 어떤 K를 사용하느냐 같은 하이퍼파라미터 설정이 중요하다. training data의 20%를 validation으로 사용하여 하이퍼파라미터 조정에 사용한다. 혹은 train set을 잘게 나눠서 cross validation을 할 수도 있다. K-NN은 이미지 상에서 절대 사용하지 않는다. 이동하거나 가리거나 조금만 어둡게 해도 같게 판단하기 때문이다.
-- **의미**: 하이퍼파라미터 튜닝 방법(validation set, cross validation)과 KNN의 한계를 아는 것이 모델 선택의 기초가 된다
+$$f(x_{i}, W, b) = W\cdot x_{i}+b$$
 
-### 상황 5. Linear Classification
+KNN과의 결정적 차이는:
+- KNN은 모든 학습 데이터를 저장해야 하지만, Linear Classifier는 **학습된 W, b만** 있으면 된다
+- 예측 시 행렬곱 한 번이면 끝이라 **속도가 비교할 수 없이 빠르다**
+- 학습 데이터는 W를 학습하는 데만 쓰이고, 학습 후에는 버려도 된다
 
-- **배움**: Neural Network의 기본이 되는 Linear Classification은 parametric approach이다. 파라미터 조정에 따른 문제 접근 방식이다.
+다만 Linear Classification에도 한계가 있다. 회색 객체는 색 구분이 안 되어서 질감으로 분류해야 하는데 그게 어렵고, 같은 객체인데 색이 다양하거나, 같은 색인데 다른 객체인 경우도 분류하기 힘들다.
 
-  $$f(x_{i}, W, b) = W\cdot x_{i}+b$$
+이렇게 나온 예측값들이 정답과 얼마나 떨어져 있는지를 측정하는 **Loss function**, 그리고 그 Loss를 줄이기 위해 W를 조정하는 **Optimization**을 다음 강의에서 배운다.
 
-  Linear classification으로 분류하기 힘든 것들이 있다. 회색으로 된 객체는 색 구분이 안되고 텍스처, 질감으로 분류해야 하므로 분류가 힘들다. 같은 객체이나 다양한 색을 가진 객체들도 분류하기 힘들다. 혹은 같은 색이지만 다른 객체들도 분류하기 힘들다.
+---
 
-  이렇게 나온 값들이 정답과 얼마나 떨어져 있는지, 얼마나 가까운지에 대해 판단하는 함수 Loss function을 정의하고 그 Loss function으로 가중치 W를 조정하는 optimizing을 배울 것이다.
-- **의미**: Linear Classification의 수식과 한계를 이해하면, 이후 배울 Loss function과 Optimization의 필요성을 자연스럽게 이해할 수 있다
+## 헷갈리기 쉬운 포인트
+
+이번 강의를 정리하면서 인터넷을 찾아보니 나만 헷갈린 게 아니었다. 많은 사람들이 비슷한 지점에서 막히더라:
+
+**1. "KNN도 비선형 경계를 만들 수 있는데 왜 안 쓰나?"**
+KNN은 이론적으로 복잡한 결정 경계를 만들 수 있다. 하지만 이미지에서는 "비슷하다"의 기준이 픽셀값 차이인데, 이게 의미적 유사도와 전혀 다르기 때문이다. 고양이 사진을 1픽셀 오른쪽으로 밀면 L2 distance가 확 달라지지만, 사람 눈에는 같은 고양이다.
+
+**2. "L1과 L2 중 뭘 써야 하나?"**
+정답은 없다. L1은 좌표축에 의존적이고(이미지를 45도 회전하면 결과가 달라짐), L2는 좌표축에 독립적이다. 실무에서는 보통 L2를 많이 쓰는데, 둘 다 해보고 validation에서 좋은 걸 고르는 게 맞다.
+
+**3. "Linear Classifier가 뭘 학습한다는 건지 감이 안 잡힌다"**
+처음에 나도 이게 제일 어려웠다. 결국 W의 각 행이 각 클래스의 "템플릿"을 학습하는 것이다. W의 airplane 행을 이미지로 시각화하면 비행기 비슷한 형태가 나온다. 하지만 클래스당 템플릿이 1개뿐이라서, 다양한 형태의 물체를 하나의 템플릿으로 커버하는 데 한계가 있다.
+
+---
+
+## 정리하며
+
+이미지 분류의 핵심 흐름은: **데이터 기반 접근** → **KNN (단순하지만 느리고 이미지에 부적합)** → **Linear Classification (파라미터 학습, 빠르지만 한계 있음)** → 다음 강의에서 배울 **Loss function과 Optimization**으로 이어진다.
+
+결국 "어떻게 하면 W를 잘 학습할 수 있는가?"가 딥러닝의 핵심 질문이라는 걸 이번에 느꼈다.

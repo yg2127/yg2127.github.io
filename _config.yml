@@ -25,6 +25,10 @@ sass:
 
 exclude: [vendor]
 
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
 # Header background style: "terminal" (git log) or "grass" (contribution graph)
 header_style: "terminal"
 

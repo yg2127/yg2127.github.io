@@ -1,0 +1,66 @@
+<nav class="toc" id="toc">
+  <p class="toc-title">목차</p>
+  <ul class="toc-list" id="toc-list"></ul>
+</nav>
+
+<style>
+.toc {
+  background: #f8f6f0;
+  border: 1px solid #e0ddd4;
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 2rem;
+  font-size: 0.9em;
+}
+.toc-title {
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 0.95em;
+}
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.toc-list li {
+  margin: 0.25rem 0;
+  line-height: 1.4;
+}
+.toc-list li a {
+  color: #555;
+  text-decoration: none;
+  border-bottom: none;
+}
+.toc-list li a:hover {
+  color: #0067fb;
+}
+.toc-list li.toc-h3 {
+  padding-left: 1rem;
+  font-size: 0.92em;
+}
+</style>
+
+<script>
+(function() {
+  var toc = document.getElementById('toc-list');
+  if (!toc) return;
+  var article = document.querySelector('.c-article__main');
+  if (!article) return;
+  var headers = article.querySelectorAll('h2, h3');
+  if (headers.length < 2) {
+    document.getElementById('toc').style.display = 'none';
+    return;
+  }
+  headers.forEach(function(h, i) {
+    if (!h.id) h.id = 'section-' + i;
+    var li = document.createElement('li');
+    li.className = 'toc-' + h.tagName.toLowerCase();
+    var a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    li.appendChild(a);
+    toc.appendChild(li);
+  });
+})();
+</script>

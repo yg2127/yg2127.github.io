@@ -1,0 +1,61 @@
+{% assign related = "" | split: "" %}
+{% for tag in page.tags %}
+  {% assign tag_name = tag | strip %}
+  {% for post in site.tags[tag_name] %}
+    {% unless post.url == page.url %}
+      {% assign related = related | push: post %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
+{% assign related = related | uniq | slice: 0, 3 %}
+
+{% if related.size > 0 %}
+<div class="related-posts">
+  <h3 class="related-posts__title">관련 포스트</h3>
+  <ul class="related-posts__list">
+    {% for post in related %}
+    <li>
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      <small>{{ post.date | date: "%b %-d, %Y" }}</small>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<style>
+.related-posts {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0ddd4;
+}
+.related-posts__title {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+.related-posts__list {
+  list-style: none;
+  padding: 0;
+}
+.related-posts__list li {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.related-posts__list li a {
+  color: #0067fb;
+  text-decoration: none;
+  border-bottom: none;
+}
+.related-posts__list li a:hover {
+  color: #0029f9;
+}
+.related-posts__list li small {
+  color: #999;
+  white-space: nowrap;
+  font-size: 0.8em;
+}
+</style>

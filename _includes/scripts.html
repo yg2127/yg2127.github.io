@@ -1,0 +1,136 @@
+<style>
+/* 스크롤 진행 바 */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: #0067fb;
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* Back to Top 버튼 */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0067fb;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+#back-to-top:hover {
+  background: #0029f9;
+}
+
+/* 코드 복사 버튼 */
+.highlighter-rouge {
+  position: relative;
+}
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-family: 'Roboto Mono', monospace;
+  color: #aaa;
+  background: transparent;
+  border: 1px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+.highlighter-rouge:hover .copy-btn {
+  opacity: 1;
+}
+.copy-btn:hover {
+  color: #fff;
+  border-color: #888;
+}
+.copy-btn.copied {
+  color: #8be367;
+  border-color: #8be367;
+}
+
+/* 읽기 시간 */
+.reading-time {
+  color: #8a8a8a;
+  font-size: 0.85em;
+}
+</style>
+
+<!-- 스크롤 진행 바 -->
+<div id="progress-bar"></div>
+
+<!-- Back to Top 버튼 -->
+<button id="back-to-top" aria-label="맨 위로">↑</button>
+
+<script>
+(function() {
+  // 스크롤 진행 바
+  var progressBar = document.getElementById('progress-bar');
+  var backToTop = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', function() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight > 0) {
+      progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+    }
+
+    // Back to Top 표시/숨김
+    if (scrollTop > 300) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  });
+
+  // Back to Top 클릭
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 코드 복사 버튼
+  document.querySelectorAll('div.highlighter-rouge').forEach(function(block) {
+    var btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'Copy';
+    btn.addEventListener('click', function() {
+      var code = block.querySelector('code');
+      if (code) {
+        navigator.clipboard.writeText(code.innerText).then(function() {
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      }
+    });
+    block.appendChild(btn);
+  });
+})();
+</script>

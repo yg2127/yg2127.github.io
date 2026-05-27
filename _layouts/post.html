@@ -4,7 +4,7 @@ layout: page
 <article class="c-article">
   <header class="c-article__header">
     <h1 class="c-article__title">{{ page.title }}</h1>
-    <p class="c-article__time"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time></p>
+    <p class="c-article__time"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time> · {% include reading_time.html %}</p>
   </header>
   <!-- Post Tags -->
   <ul class="c-tags">
@@ -12,9 +12,13 @@ layout: page
     <li class="c-tag">{{ tag }}</li>
     {% endfor %}
   </ul>
+  <!-- Table of Contents -->
+  {% include toc.html %}
   <div class="c-article__main">
     {{ content }}
   </div>
+  <!-- Related Posts -->
+  {% include related_posts.html %}
   <!-- Previous / Next Buttons -->
   <div class="pagenav">
     {% if page.previous.url %}
@@ -32,11 +36,25 @@ layout: page
     </div>
     {% endif %}
   </div>
-  <!-- Disqus comments view -->
-  {% if page.comments != false and site.disqus_id %}
-  <div class="post-disqus">
-    <section id="disqus_thread"></section>
-    {% include disqus.html %}
+  <!-- Giscus Comments -->
+  {% if page.comments != false %}
+  <div class="post-comments" style="margin-top: 2rem;">
+    <script src="https://giscus.app/client.js"
+      data-repo="yg2127/yg2127.github.io"
+      data-repo-id="R_kgDORQQ4hg"
+      data-category="General"
+      data-category-id="DIC_kwDORQQ4hs4C5VLf"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="ko"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
   </div>
   {% endif %}
 </article>

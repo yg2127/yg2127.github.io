@@ -1,0 +1,1 @@
+{% assign words = content | number_of_words %}{% assign minutes = words | divided_by: 200 | at_least: 1 %}<span class="reading-time">{{ minutes }}분 읽기</span>
