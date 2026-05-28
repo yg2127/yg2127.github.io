@@ -1,5 +1,11 @@
 [
   {
+    "line": "* d77c26c refactor: 파이썬·SQLite 입문 시리즈를 치트시트 통합본으로 정리"
+  },
+  {
+    "line": "* f5ec156 chore: update commits data"
+  },
+  {
     "line": "* 255bce0 feat: ResNet 논문 리뷰 포스트 추가 및 블로그 톤 개편"
   },
   {
