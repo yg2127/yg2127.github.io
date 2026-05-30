@@ -1,0 +1,50 @@
+---
+layout: page
+---
+<section class="c-archives">
+  <p class="c-stack__back"><a href="{{ "/stack/" | prepend: site.baseurl }}">← Stack</a></p>
+  <h2 class="c-archives__year">
+    {% if page.icon %}<i class="{{ page.icon }}"></i> {% endif %}{{ page.title }}
+  </h2>
+
+  {% assign posts = site.categories[page.category] %}
+  {% assign subcats = posts | map: "subcategory" | uniq | sort %}
+
+  {% comment %} subcategory가 있는 글: 소분류별로 묶어서 표시 {% endcomment %}
+  {% for subcat in subcats %}
+    {% if subcat %}
+    <h3 class="c-archives__month">{{ subcat }}</h3>
+    <ul class="c-archives__list">
+      {% for post in posts %}
+        {% if post.subcategory == subcat %}
+        <li class="c-archives__item">
+          <h3>
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <br>
+            <small>{{ post.description }}</small>
+          </h3>
+          <p>{{ post.date | date: "%b %-d, %Y" }}</p>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endfor %}
+
+  {% comment %} subcategory가 없는 글 {% endcomment %}
+  {% assign nosub = posts | where_exp: "p", "p.subcategory == nil" %}
+  {% if nosub.size > 0 %}
+  <ul class="c-archives__list">
+    {% for post in nosub %}
+    <li class="c-archives__item">
+      <h3>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <br>
+        <small>{{ post.description }}</small>
+      </h3>
+      <p>{{ post.date | date: "%b %-d, %Y" }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>

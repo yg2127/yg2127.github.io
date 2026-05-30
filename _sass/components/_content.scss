@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Content enhancements (Obsidian Nord 영향 — 표/구분선/콜아웃/하이라이트/취소선)
+   라이트 크림 테마에 맞춰 Nord의 구조만 차용
+   ========================================================================== */
+
+.c-article__main {
+
+    /* ----- 표 (Nord: collapse 테두리 + 진한 헤더 + zebra + hover) ----- */
+    table {
+        width: 100%;
+        margin: 2.4rem 0;
+        border-collapse: collapse;
+        border: 1px solid $c-base__2;
+        @include fs--caption;
+        line-height: 1.45;
+    }
+
+    thead th {
+        background: $c-base__02;
+        color: $c-base__3;
+        font-weight: 700;
+        text-align: left;
+        padding: 1rem 1.3rem;
+        border: 1px solid $c-base__02;
+    }
+
+    tbody td {
+        padding: 0.9rem 1.3rem;
+        border: 1px solid $c-base__2;
+        vertical-align: top;
+    }
+
+    tbody tr:nth-child(odd) {
+        background: #FFFFFF;
+    }
+
+    tbody tr:nth-child(even) {
+        background: rgba(22, 53, 65, 0.045);
+    }
+
+    tbody tr:hover {
+        background: rgba(0, 103, 251, 0.08);
+    }
+
+    /* ----- 구분선 ___ (Nord: 은은하게 페이드되는 액센트 라인) ----- */
+    hr {
+        margin: 3.2rem auto;
+        width: 100%;
+        height: 2px;
+        border: 0;
+        background: linear-gradient(
+            to right,
+            transparent,
+            $c-base__1 18%,
+            $c-base__1 82%,
+            transparent
+        );
+    }
+
+    /* ----- 취소선 ----- */
+    del,
+    s {
+        color: $c-base__00;
+        text-decoration-color: $c-accent__blue;
+        text-decoration-thickness: 2px;
+    }
+
+    /* ----- 하이라이트 mark (Nord aurora yellow 톤) ----- */
+    mark {
+        background: rgba(235, 203, 139, 0.5);
+        color: $c-base__03;
+        padding: 0.1em 0.25em;
+        border-radius: 2px;
+    }
+
+    /* ----- 콜아웃형 인용구 (Nord callout: 액센트 좌측 바 + 옅은 배경) ----- */
+    blockquote {
+        margin: 2.2rem 0;
+        padding: 1.2rem 1.8rem;
+        border-left: 4px solid $c-accent__blue;
+        background: rgba(0, 103, 251, 0.05);
+        border-radius: 0 4px 4px 0;
+        color: $c-base__01;
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
