@@ -1,5 +1,11 @@
 [
   {
+    "line": "* ced2cfd feat: GCN·BYOL·CLIP 논문 리뷰 추가 (세미나 시리즈 완성)"
+  },
+  {
+    "line": "* 1d7c41f chore: update commits data"
+  },
+  {
     "line": "* 37d3187 feat: SVM 리뷰 추가 + 콘텐츠 테마 강화 + Stack 전용 페이지"
   },
   {
