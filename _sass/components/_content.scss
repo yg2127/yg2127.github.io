@@ -86,4 +86,34 @@
             margin-bottom: 0;
         }
     }
+
+    /* ----- 넓은 display 수식: 컨테이너 밖으로 잘려 안 보이지 않게 가로 스크롤 ----- */
+    mjx-container[display="true"] {
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-width: 100%;
+        padding: 0.4rem 0;
+    }
+
+    /* ----- 그림 + 옆 설명 나란히 (인코더 도식) ----- */
+    .fig-encoder {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 2rem;
+        margin: 2.4rem 0;
+
+        img {
+            width: 200px;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .fig-encoder__note {
+            flex: 1 1 220px;
+            @include fs--caption;
+            color: $c-base__01;
+            line-height: 1.6;
+        }
+    }
 }
