@@ -1,5 +1,11 @@
 [
   {
+    "line": "* fbacde8 feat: TabPFN 논문 리뷰 추가 (뉴로클 인턴 면접 과제)"
+  },
+  {
+    "line": "* a55afd6 chore: update commits data"
+  },
+  {
     "line": "* ced2cfd feat: GCN·BYOL·CLIP 논문 리뷰 추가 (세미나 시리즈 완성)"
   },
   {
@@ -82,8 +88,5 @@
   },
   {
     "line": "* 0be93bf feat: apply Jekyll theme with layouts, styles, and sample posts"
-  },
-  {
-    "line": "* 9307ff7 Initial commit"
   }
 ]
