@@ -7,16 +7,16 @@ layout: page
     {% if page.icon %}<i class="{{ page.icon }}"></i> {% endif %}{{ page.title }}
   </h2>
 
-  {% assign posts = site.categories[page.category] %}
-  {% assign subcats = posts | map: "subcategory" | uniq | sort %}
+  {% assign posts = site.categories[page.category] | sort: "date" %}
+  {% assign subcats = posts | map: "subcategory" | uniq %}
 
   {% comment %} subcategory가 있는 글: 소분류별로 묶어서 표시 {% endcomment %}
   {% for subcat in subcats %}
     {% if subcat %}
     <h3 class="c-archives__month">{{ subcat }}</h3>
+    {% assign subposts = posts | where: "subcategory", subcat | sort: "title" %}
     <ul class="c-archives__list">
-      {% for post in posts %}
-        {% if post.subcategory == subcat %}
+      {% for post in subposts %}
         <li class="c-archives__item">
           <h3>
             <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -25,7 +25,6 @@ layout: page
           </h3>
           <p>{{ post.date | date: "%b %-d, %Y" }}</p>
         </li>
-        {% endif %}
       {% endfor %}
     </ul>
     {% endif %}
