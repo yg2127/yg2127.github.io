@@ -1,5 +1,11 @@
 [
   {
+    "line": "* b32182f fix: Stack 페이지 글 정렬을 발표·강의 순서대로"
+  },
+  {
+    "line": "* 3e6690d chore: update commits data"
+  },
+  {
     "line": "* bd8aaf2 fix: TabPFN 인코더 그림 정리 + 넓은 수식 가로 스크롤"
   },
   {
@@ -82,11 +88,5 @@
   },
   {
     "line": "* b53bd07 chore: update commits data"
-  },
-  {
-    "line": "* 00ab7c2 feat: add Git-themed header background with terminal and grass styles"
-  },
-  {
-    "line": "* 8a2e00e feat: customize blog with personal info, Python series, and Stack page"
   }
 ]
