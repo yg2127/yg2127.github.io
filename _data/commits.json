@@ -1,5 +1,11 @@
 [
   {
+    "line": "* 1e054ef fix: TabPFN 글 문체 정리 — 예고편식 소제목을 내용 요약으로, 해설자 어미를 완료형으로"
+  },
+  {
+    "line": "* 00e0fdc chore: update commits data"
+  },
+  {
     "line": "* b32182f fix: Stack 페이지 글 정렬을 발표·강의 순서대로"
   },
   {
@@ -82,11 +88,5 @@
   },
   {
     "line": "* e973aaf chore: update commits data"
-  },
-  {
-    "line": "* 721f994 UI update"
-  },
-  {
-    "line": "* b53bd07 chore: update commits data"
   }
 ]
