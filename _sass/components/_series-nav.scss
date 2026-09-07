@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Post series navigation
+   ========================================================================== */
+
+.series-nav {
+    margin: 0 0 3rem;
+    padding: 1.4rem;
+    border: $m-border;
+    border-radius: 6px;
+}
+
+.series-nav__title {
+    margin: 0 0 0.8rem;
+    color: $c-base__02;
+    font-size: 1.1rem;
+}
+
+.series-nav__list {
+    margin: 0 0 1.2rem 1.5rem;
+}
+
+.series-nav__list li {
+    margin: 0.35rem 0;
+}
+
+.series-nav__list a,
+.series-nav__pager a {
+    border-bottom: 0;
+    text-decoration: none;
+}
+
+.series-nav__current a {
+    color: $c-base__02;
+    font-weight: 700;
+}
+
+.series-nav__order {
+    margin-right: 0.35rem;
+    color: $c-base__01;
+    font-size: 0.85em;
+}
+
+.series-nav__pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: $m-border;
+}
+
+.series-nav__pager a {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.series-nav__pager small {
+    margin-bottom: 0.2rem;
+    color: $c-base__01;
+}
+
+.series-nav__next {
+    text-align: right;
+}

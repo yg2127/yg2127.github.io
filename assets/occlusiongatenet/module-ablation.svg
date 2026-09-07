@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 690" role="img" aria-labelledby="title desc" font-family="Arial, Helvetica, sans-serif">
+<title id="title">Module ablation masked F1</title>
+<desc id="desc">Raw masked macro-F1 by task and model variant; signed deltas are relative to the full model.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#47606f"/></marker></defs>
+<rect width="1120" height="690" fill="#ffffff"/>
+<text x="560" y="42" text-anchor="middle" font-size="27" font-weight="700" fill="#172b3a">Module ablation on masked clips</text>
+<text x="560" y="70" text-anchor="middle" font-size="15" font-weight="400" fill="#617181">Points show raw F1; labels show signed change from full model</text>
+<line x1="165" y1="565.0" x2="1070" y2="565.0" stroke="#dce3e8"/>
+<text x="151" y="571.0" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.20</text>
+<line x1="165" y1="500.7142857142857" x2="1070" y2="500.7142857142857" stroke="#dce3e8"/>
+<text x="151" y="506.7142857142857" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.30</text>
+<line x1="165" y1="436.42857142857144" x2="1070" y2="436.42857142857144" stroke="#dce3e8"/>
+<text x="151" y="442.42857142857144" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.40</text>
+<line x1="165" y1="372.1428571428571" x2="1070" y2="372.1428571428571" stroke="#dce3e8"/>
+<text x="151" y="378.1428571428571" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.50</text>
+<line x1="165" y1="307.8571428571429" x2="1070" y2="307.8571428571429" stroke="#dce3e8"/>
+<text x="151" y="313.8571428571429" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.60</text>
+<line x1="165" y1="243.57142857142856" x2="1070" y2="243.57142857142856" stroke="#dce3e8"/>
+<text x="151" y="249.57142857142856" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.70</text>
+<line x1="165" y1="179.28571428571422" x2="1070" y2="179.28571428571422" stroke="#dce3e8"/>
+<text x="151" y="185.28571428571422" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.80</text>
+<line x1="165" y1="115.0" x2="1070" y2="115.0" stroke="#dce3e8"/>
+<text x="151" y="121.0" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.90</text>
+<text x="220" y="590" text-anchor="middle" font-size="15" font-weight="700" fill="#172b3a">Full</text>
+<circle cx="193" cy="149.71428571428572" r="7" fill="#2f6fb3" stroke="#fff" stroke-width="2"/>
+<circle cx="211" cy="318.7214285714286" r="7" fill="#d2691e" stroke="#fff" stroke-width="2"/>
+<circle cx="229" cy="244.40714285714284" r="7" fill="#2e8b57" stroke="#fff" stroke-width="2"/>
+<circle cx="247" cy="212.97142857142848" r="7" fill="#8a5fb5" stroke="#fff" stroke-width="2"/>
+<text x="385" y="590" text-anchor="middle" font-size="15" font-weight="700" fill="#172b3a">No body</text>
+<circle cx="358" cy="530.8000000000001" r="7" fill="#2f6fb3" stroke="#fff" stroke-width="2"/>
+<text x="358" y="518.8000000000001" text-anchor="middle" font-size="10" font-weight="700" fill="#2f6fb3">-59.3</text>
+<circle cx="376" cy="417.78571428571433" r="7" fill="#d2691e" stroke="#fff" stroke-width="2"/>
+<text x="376" y="405.78571428571433" text-anchor="middle" font-size="10" font-weight="700" fill="#d2691e">-15.4</text>
+<circle cx="394" cy="477.31428571428575" r="7" fill="#2e8b57" stroke="#fff" stroke-width="2"/>
+<text x="394" y="465.31428571428575" text-anchor="middle" font-size="10" font-weight="700" fill="#2e8b57">-36.2</text>
+<circle cx="412" cy="353.11428571428576" r="7" fill="#8a5fb5" stroke="#fff" stroke-width="2"/>
+<text x="412" y="341.11428571428576" text-anchor="middle" font-size="10" font-weight="700" fill="#8a5fb5">-21.8</text>
+<text x="550" y="590" text-anchor="middle" font-size="15" font-weight="700" fill="#172b3a">No face</text>
+<circle cx="523" cy="127.98571428571427" r="7" fill="#2f6fb3" stroke="#fff" stroke-width="2"/>
+<text x="523" y="115.98571428571427" text-anchor="middle" font-size="10" font-weight="700" fill="#2f6fb3">+3.4</text>
+<circle cx="541" cy="448.45000000000005" r="7" fill="#d2691e" stroke="#fff" stroke-width="2"/>
+<text x="541" y="436.45000000000005" text-anchor="middle" font-size="10" font-weight="700" fill="#d2691e">-20.2</text>
+<circle cx="559" cy="234.44285714285712" r="7" fill="#2e8b57" stroke="#fff" stroke-width="2"/>
+<text x="559" y="222.44285714285712" text-anchor="middle" font-size="10" font-weight="700" fill="#2e8b57">+1.5</text>
+<circle cx="577" cy="213.55" r="7" fill="#8a5fb5" stroke="#fff" stroke-width="2"/>
+<text x="577" y="201.55" text-anchor="middle" font-size="10" font-weight="700" fill="#8a5fb5">-0.1</text>
+<text x="715" y="590" text-anchor="middle" font-size="15" font-weight="700" fill="#172b3a">No</text>
+<text x="715" y="608" text-anchor="middle" font-size="14" font-weight="700" fill="#172b3a">occlusion</text>
+<circle cx="688" cy="156.01428571428562" r="7" fill="#2f6fb3" stroke="#fff" stroke-width="2"/>
+<text x="688" y="144.01428571428562" text-anchor="middle" font-size="10" font-weight="700" fill="#2f6fb3">-1.0</text>
+<circle cx="706" cy="412.1285714285714" r="7" fill="#d2691e" stroke="#fff" stroke-width="2"/>
+<text x="706" y="400.1285714285714" text-anchor="middle" font-size="10" font-weight="700" fill="#d2691e">-14.5</text>
+<circle cx="724" cy="245.69285714285712" r="7" fill="#2e8b57" stroke="#fff" stroke-width="2"/>
+<text x="724" y="233.69285714285712" text-anchor="middle" font-size="10" font-weight="700" fill="#2e8b57">-0.2</text>
+<circle cx="742" cy="210.1428571428571" r="7" fill="#8a5fb5" stroke="#fff" stroke-width="2"/>
+<text x="742" y="198.1428571428571" text-anchor="middle" font-size="10" font-weight="700" fill="#8a5fb5">+0.4</text>
+<text x="880" y="590" text-anchor="middle" font-size="15" font-weight="700" fill="#172b3a">No</text>
+<text x="880" y="608" text-anchor="middle" font-size="14" font-weight="700" fill="#172b3a">HGNet</text>
+<circle cx="853" cy="161.02857142857135" r="7" fill="#2f6fb3" stroke="#fff" stroke-width="2"/>
+<text x="853" y="149.02857142857135" text-anchor="middle" font-size="10" font-weight="700" fill="#2f6fb3">-1.8</text>
+<circle cx="871" cy="349.32142857142856" r="7" fill="#d2691e" stroke="#fff" stroke-width="2"/>
+<text x="871" y="337.32142857142856" text-anchor="middle" font-size="10" font-weight="700" fill="#d2691e">-4.8</text>
+<circle cx="889" cy="241.2571428571428" r="7" fill="#2e8b57" stroke="#fff" stroke-width="2"/>
+<text x="889" y="229.2571428571428" text-anchor="middle" font-size="10" font-weight="700" fill="#2e8b57">+0.5</text>
+<circle cx="907" cy="213.3571428571429" r="7" fill="#8a5fb5" stroke="#fff" stroke-width="2"/>
+<text x="907" y="201.3571428571429" text-anchor="middle" font-size="10" font-weight="700" fill="#8a5fb5">-0.1</text>
+<text x="1045" y="590" text-anchor="middle" font-size="15" font-weight="700" fill="#172b3a">No gate</text>
+<circle cx="1018" cy="161.1571428571428" r="7" fill="#2f6fb3" stroke="#fff" stroke-width="2"/>
+<text x="1018" y="149.1571428571428" text-anchor="middle" font-size="10" font-weight="700" fill="#2f6fb3">-1.8</text>
+<circle cx="1036" cy="406.15" r="7" fill="#d2691e" stroke="#fff" stroke-width="2"/>
+<text x="1036" y="394.15" text-anchor="middle" font-size="10" font-weight="700" fill="#d2691e">-13.6</text>
+<circle cx="1054" cy="246.65714285714284" r="7" fill="#2e8b57" stroke="#fff" stroke-width="2"/>
+<text x="1054" y="234.65714285714284" text-anchor="middle" font-size="10" font-weight="700" fill="#2e8b57">-0.3</text>
+<circle cx="1072" cy="227.43571428571437" r="7" fill="#8a5fb5" stroke="#fff" stroke-width="2"/>
+<text x="1072" y="215.43571428571437" text-anchor="middle" font-size="10" font-weight="700" fill="#8a5fb5">-2.3</text>
+<circle cx="250" cy="635" r="7" fill="#2f6fb3"/>
+<text x="264" y="640" text-anchor="start" font-size="14" font-weight="400" fill="#172b3a">Action</text>
+<circle cx="425" cy="635" r="7" fill="#d2691e"/>
+<text x="439" y="640" text-anchor="start" font-size="14" font-weight="400" fill="#172b3a">Gaze</text>
+<circle cx="600" cy="635" r="7" fill="#2e8b57"/>
+<text x="614" y="640" text-anchor="start" font-size="14" font-weight="400" fill="#172b3a">Hands</text>
+<circle cx="775" cy="635" r="7" fill="#8a5fb5"/>
+<text x="789" y="640" text-anchor="start" font-size="14" font-weight="400" fill="#172b3a">Talk</text>
+<text x="1080" y="640" text-anchor="end" font-size="12" font-weight="400" fill="#617181">Delta labels: percentage points</text>
+<text x="1080" y="663" text-anchor="end" font-size="12" font-weight="400" fill="#617181">Fixed split · seed 42 · clip macro-F1</text>
+</svg>

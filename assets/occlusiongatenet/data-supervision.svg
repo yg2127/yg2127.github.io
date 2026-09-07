@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 560" role="img" aria-labelledby="title desc" font-family="Arial, Helvetica, sans-serif">
+<title id="title">Pseudo-target supervision</title>
+<desc id="desc">Clean MediaPipe landmarks supervise predictions from synthetically masked inputs.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#47606f"/></marker></defs>
+<rect width="1250" height="560" fill="#ffffff"/>
+<text x="625" y="42" text-anchor="middle" font-size="27" font-weight="700" fill="#172b3a">Training data and supervision</text>
+<text x="625" y="71" text-anchor="middle" font-size="15" font-weight="400" fill="#617181">Clean-frame pseudo-targets supervise masked-input landmark prediction</text>
+<rect x="55" y="185" width="180" height="88" rx="12" fill="#eef5fb" stroke="#2f6fb3" stroke-width="2"/>
+<text x="145.0" y="222.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Clean crop</text>
+<text x="145.0" y="247.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">source frame</text>
+<line x1="235" y1="208" x2="325" y2="145" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<line x1="235" y1="250" x2="325" y2="350" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="325" y="105" width="230" height="100" rx="12" fill="#eef8f1" stroke="#2e8b57" stroke-width="2"/>
+<text x="440.0" y="148.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">MediaPipe</text>
+<text x="440.0" y="173.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">on clean crop</text>
+<rect x="325" y="310" width="230" height="100" rx="12" fill="#fff4e9" stroke="#d2691e" stroke-width="2"/>
+<text x="440.0" y="353.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Synthetic mask</text>
+<text x="440.0" y="378.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">applied to clean crop</text>
+<line x1="555" y1="360" x2="650" y2="360" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="650" y="310" width="205" height="100" rx="12" fill="#fff4e9" stroke="#d2691e" stroke-width="2"/>
+<text x="752.5" y="353.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Masked input</text>
+<text x="752.5" y="378.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">model input</text>
+<line x1="855" y1="360" x2="940" y2="360" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="940" y="310" width="240" height="100" rx="12" fill="#f5f1fa" stroke="#8a5fb5" stroke-width="2"/>
+<text x="1060.0" y="353.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Restorer prediction</text>
+<text x="1060.0" y="378.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">478 landmarks</text>
+<line x1="555" y1="155" x2="785" y2="155" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="785" y="105" width="270" height="100" rx="12" fill="#eef8f1" stroke="#2e8b57" stroke-width="2"/>
+<text x="920.0" y="148.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Clean pseudo-target</text>
+<text x="920.0" y="173.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">MediaPipe landmarks</text>
+<line x1="1055" y1="155" x2="1100" y2="280" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<line x1="1060" y1="310" x2="1100" y2="230" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<circle cx="1105" cy="255" r="36" fill="#fff" stroke="#47606f" stroke-width="2"/>
+<text x="1105" y="262" text-anchor="middle" font-size="17" font-weight="700" fill="#172b3a">loss</text>
+<text x="625" y="495" text-anchor="middle" font-size="20" font-weight="700" fill="#a24d20">Pseudo-target ≠ manually annotated ground truth</text>
+<text x="625" y="525" text-anchor="middle" font-size="15" font-weight="400" fill="#617181">The prediction is compared with landmarks inferred from the clean crop</text>
+</svg>

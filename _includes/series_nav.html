@@ -1,0 +1,46 @@
+{% assign series_posts = site.posts | where: "series", page.series | sort: "series_order" %}
+{% assign series_previous = false %}
+{% assign series_next = false %}
+{% assign current_found = false %}
+
+{% for series_post in series_posts %}
+  {% if current_found %}
+    {% assign series_next = series_post %}
+    {% break %}
+  {% elsif series_post.url == page.url %}
+    {% assign current_found = true %}
+  {% else %}
+    {% assign series_previous = series_post %}
+  {% endif %}
+{% endfor %}
+
+<nav class="series-nav" aria-labelledby="series-nav-title">
+  <h2 class="series-nav__title" id="series-nav-title">{{ page.series_title | default: page.series }}</h2>
+  <ol class="series-nav__list">
+    {% for series_post in series_posts %}
+    <li{% if series_post.url == page.url %} class="series-nav__current" aria-current="page"{% endif %}>
+      <a href="{{ series_post.url | prepend: site.baseurl }}">
+        <span class="series-nav__order">{{ series_post.series_order }}편</span>
+        {{ series_post.title }}
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+
+  {% if series_previous or series_next %}
+  <div class="series-nav__pager">
+    {% if series_previous %}
+    <a class="series-nav__previous" href="{{ series_previous.url | prepend: site.baseurl }}">
+      <small>이전 편</small>
+      <span>&laquo; {{ series_previous.title }}</span>
+    </a>
+    {% endif %}
+    {% if series_next %}
+    <a class="series-nav__next" href="{{ series_next.url | prepend: site.baseurl }}">
+      <small>다음 편</small>
+      <span>{{ series_next.title }} &raquo;</span>
+    </a>
+    {% endif %}
+  </div>
+  {% endif %}
+</nav>

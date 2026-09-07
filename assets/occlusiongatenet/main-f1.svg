@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 650" role="img" aria-labelledby="title desc" font-family="Arial, Helvetica, sans-serif">
+<title id="title">Clean vs masked task F1</title>
+<desc id="desc">Full model macro-F1 under clean and masked evaluation.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#47606f"/></marker></defs>
+<rect width="1060" height="650" fill="#ffffff"/>
+<text x="530" y="42" text-anchor="middle" font-size="27" font-weight="700" fill="#172b3a">Full system: clean vs masked F1</text>
+<text x="530" y="70" text-anchor="middle" font-size="15" font-weight="400" fill="#617181">Absolute drop (pp) and relative drop (%) are reported separately</text>
+<line x1="100" y1="520.0" x2="1015" y2="520.0" stroke="#dce3e8"/>
+<text x="86" y="526.0" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.00</text>
+<line x1="100" y1="439.0" x2="1015" y2="439.0" stroke="#dce3e8"/>
+<text x="86" y="445.0" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.20</text>
+<line x1="100" y1="358.0" x2="1015" y2="358.0" stroke="#dce3e8"/>
+<text x="86" y="364.0" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.40</text>
+<line x1="100" y1="277.0" x2="1015" y2="277.0" stroke="#dce3e8"/>
+<text x="86" y="283.0" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.60</text>
+<line x1="100" y1="196.0" x2="1015" y2="196.0" stroke="#dce3e8"/>
+<text x="86" y="202.0" text-anchor="end" font-size="14" font-weight="400" fill="#617181">0.80</text>
+<line x1="100" y1="115.0" x2="1015" y2="115.0" stroke="#dce3e8"/>
+<text x="86" y="121.0" text-anchor="end" font-size="14" font-weight="400" fill="#617181">1.00</text>
+<text transform="rotate(-90 28 320)" x="28" y="320" text-anchor="middle" font-size="16" font-weight="700" fill="#172b3a">Macro-F1</text>
+<rect x="142" y="174.49450000000002" width="64" height="345.5055" rx="4" fill="#2f6fb3" fill-opacity="1"/>
+<text x="174.0" y="165.49450000000002" text-anchor="middle" font-size="14" font-weight="700" fill="#172b3a">0.8531</text>
+<rect x="214" y="177.37" width="64" height="342.63" rx="4" fill="#2f6fb3" fill-opacity="0.62"/>
+<text x="246.0" y="168.37" text-anchor="middle" font-size="14" font-weight="700" fill="#172b3a">0.8460</text>
+<text x="210" y="552" text-anchor="middle" font-size="17" font-weight="700" fill="#172b3a">Action</text>
+<text x="210" y="578" text-anchor="middle" font-size="14" font-weight="700" fill="#a24d20">drop 0.71 pp</text>
+<text x="210" y="600" text-anchor="middle" font-size="13" font-weight="400" fill="#617181">relative 0.83%</text>
+<rect x="367" y="262.6225" width="64" height="257.3775" rx="4" fill="#d2691e" fill-opacity="1"/>
+<text x="399.0" y="253.6225" text-anchor="middle" font-size="14" font-weight="700" fill="#172b3a">0.6355</text>
+<rect x="439" y="283.84450000000004" width="64" height="236.15549999999996" rx="4" fill="#d2691e" fill-opacity="0.62"/>
+<text x="471.0" y="274.84450000000004" text-anchor="middle" font-size="14" font-weight="700" fill="#172b3a">0.5831</text>
+<text x="435" y="552" text-anchor="middle" font-size="17" font-weight="700" fill="#172b3a">Gaze</text>
+<text x="435" y="578" text-anchor="middle" font-size="14" font-weight="700" fill="#a24d20">drop 5.24 pp</text>
+<text x="435" y="600" text-anchor="middle" font-size="13" font-weight="400" fill="#617181">relative 8.25%</text>
+<rect x="592" y="234.83950000000004" width="64" height="285.16049999999996" rx="4" fill="#2e8b57" fill-opacity="1"/>
+<text x="624.0" y="225.83950000000004" text-anchor="middle" font-size="14" font-weight="700" fill="#172b3a">0.7041</text>
+<rect x="664" y="237.0265" width="64" height="282.9735" rx="4" fill="#2e8b57" fill-opacity="0.62"/>
+<text x="696.0" y="228.0265" text-anchor="middle" font-size="14" font-weight="700" fill="#172b3a">0.6987</text>
+<text x="660" y="552" text-anchor="middle" font-size="17" font-weight="700" fill="#172b3a">Hands</text>
+<text x="660" y="578" text-anchor="middle" font-size="14" font-weight="700" fill="#a24d20">drop 0.54 pp</text>
+<text x="660" y="600" text-anchor="middle" font-size="13" font-weight="400" fill="#617181">relative 0.77%</text>
+<rect x="817" y="215.64250000000004" width="64" height="304.35749999999996" rx="4" fill="#8a5fb5" fill-opacity="1"/>
+<text x="849.0" y="206.64250000000004" text-anchor="middle" font-size="14" font-weight="700" fill="#172b3a">0.7515</text>
+<rect x="889" y="217.22199999999998" width="64" height="302.778" rx="4" fill="#8a5fb5" fill-opacity="0.62"/>
+<text x="921.0" y="208.22199999999998" text-anchor="middle" font-size="14" font-weight="700" fill="#172b3a">0.7476</text>
+<text x="885" y="552" text-anchor="middle" font-size="17" font-weight="700" fill="#172b3a">Talk</text>
+<text x="885" y="578" text-anchor="middle" font-size="14" font-weight="700" fill="#a24d20">drop 0.39 pp</text>
+<text x="885" y="600" text-anchor="middle" font-size="13" font-weight="400" fill="#617181">relative 0.52%</text>
+<rect x="360" y="620" width="16" height="16" fill="#2f6fb3"/>
+<text x="385" y="634" text-anchor="start" font-size="14" font-weight="400" fill="#172b3a">Clean</text>
+<rect x="520" y="620" width="16" height="16" fill="#2f6fb3" fill-opacity=".62"/>
+<text x="545" y="634" text-anchor="start" font-size="14" font-weight="400" fill="#172b3a">Masked</text>
+<text x="1018" y="637" text-anchor="end" font-size="12" font-weight="400" fill="#617181">Fixed split · seed 42 · clip macro-F1</text>
+</svg>

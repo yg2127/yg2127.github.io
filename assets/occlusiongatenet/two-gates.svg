@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 650" role="img" aria-labelledby="title desc" font-family="Arial, Helvetica, sans-serif">
+<title id="title">Two distinct gates</title>
+<desc id="desc">Coordinate-level landmark selection occurs before task-level feature fusion.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#47606f"/></marker></defs>
+<rect width="1250" height="650" fill="#ffffff"/>
+<text x="625" y="42" text-anchor="middle" font-size="27" font-weight="700" fill="#172b3a">Two distinct gates</text>
+<text x="625" y="71" text-anchor="middle" font-size="15" font-weight="400" fill="#617181">Gate 1 selects coordinates; Gate 2 fuses task features</text>
+<rect x="35" y="100" width="1180" height="205" rx="18" fill="#eef5fb" stroke="#b8d1e5"/>
+<text x="60" y="132" text-anchor="start" font-size="18" font-weight="700" fill="#2f6fb3">GATE 1 · Coordinate merge</text>
+<rect x="75" y="165" width="180" height="82" rx="12" fill="#f5f8fa" stroke="#8aa0ad" stroke-width="2"/>
+<text x="165.0" y="199.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Visibility</text>
+<text x="165.0" y="224.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">per face region</text>
+<rect x="320" y="145" width="210" height="72" rx="12" fill="#fff" stroke="#2f6fb3" stroke-width="2"/>
+<text x="425.0" y="174.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Visible region</text>
+<text x="425.0" y="199.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">MediaPipe coords</text>
+<rect x="320" y="225" width="210" height="72" rx="12" fill="#fff" stroke="#d2691e" stroke-width="2"/>
+<text x="425.0" y="254.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Occluded region</text>
+<text x="425.0" y="279.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">restored coords</text>
+<line x1="255" y1="195" x2="320" y2="180" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<line x1="255" y1="218" x2="320" y2="260" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="610" y="175" width="260" height="92" rx="12" fill="#fff4e9" stroke="#d2691e" stroke-width="2"/>
+<text x="740.0" y="214.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Coordinate merge</text>
+<text x="740.0" y="239.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">region-wise selection</text>
+<line x1="530" y1="180" x2="610" y2="200" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<line x1="530" y1="260" x2="610" y2="240" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="950" y="175" width="210" height="92" rx="12" fill="#eef8f1" stroke="#2e8b57" stroke-width="2"/>
+<text x="1055.0" y="214.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Merged face</text>
+<text x="1055.0" y="239.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">478 landmarks</text>
+<line x1="870" y1="221" x2="950" y2="221" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="35" y="340" width="1180" height="260" rx="18" fill="#f4f7f4" stroke="#c4d8c9"/>
+<text x="60" y="372" text-anchor="start" font-size="18" font-weight="700" fill="#2e8b57">GATE 2 · Task feature fusion</text>
+<rect x="75" y="405" width="185" height="52" rx="12" fill="#f5f8fa" stroke="#8aa0ad" stroke-width="2"/>
+<text x="167.5" y="437.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Face regions</text>
+<rect x="75" y="475" width="185" height="52" rx="12" fill="#f5f8fa" stroke="#8aa0ad" stroke-width="2"/>
+<text x="167.5" y="507.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Visibility</text>
+<rect x="75" y="545" width="185" height="52" rx="12" fill="#f5f8fa" stroke="#8aa0ad" stroke-width="2"/>
+<text x="167.5" y="577.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Pose</text>
+<line x1="260" y1="431" x2="350" y2="453" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<line x1="260" y1="501" x2="350" y2="493" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="350" y="430" width="225" height="92" rx="12" fill="#fff" stroke="#2e8b57" stroke-width="2"/>
+<text x="462.5" y="469.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Task face vector</text>
+<text x="462.5" y="494.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">region gate + reliability</text>
+<line x1="575" y1="476" x2="665" y2="476" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<polyline points="260,571 620,571 620,505 665,505" fill="none" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<polyline points="260,501 300,501 300,395 700,395 700,430" fill="none" stroke="#47606f" stroke-width="2.1" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<rect x="665" y="430" width="225" height="92" rx="12" fill="#fff4e9" stroke="#d2691e" stroke-width="2"/>
+<text x="777.5" y="469.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Scalar pose–face gate</text>
+<text x="777.5" y="494.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">g·Pose + (1−g)·Face</text>
+<line x1="890" y1="476" x2="945" y2="476" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="945" y="405" width="100" height="58" rx="12" fill="#fff" stroke="#8aa0ad" stroke-width="2"/>
+<text x="995.0" y="427.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Action</text>
+<text x="995.0" y="452.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">head</text>
+<rect x="1065" y="405" width="100" height="58" rx="12" fill="#fff" stroke="#8aa0ad" stroke-width="2"/>
+<text x="1115.0" y="427.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Gaze</text>
+<text x="1115.0" y="452.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">head</text>
+<rect x="945" y="490" width="100" height="58" rx="12" fill="#fff" stroke="#8aa0ad" stroke-width="2"/>
+<text x="995.0" y="512.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Hands</text>
+<text x="995.0" y="537.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">head</text>
+<rect x="1065" y="490" width="100" height="58" rx="12" fill="#fff" stroke="#8aa0ad" stroke-width="2"/>
+<text x="1115.0" y="512.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Talk</text>
+<text x="1115.0" y="537.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">head</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc" font-family="Arial, Helvetica, sans-serif">
+<title id="title">Landmark restoration pipeline</title>
+<desc id="desc">ORFormer creates reference edge heatmaps and HGNet predicts landmarks; it does not restore a photograph.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#47606f"/></marker></defs>
+<rect width="1200" height="500" fill="#ffffff"/>
+<text x="600" y="42" text-anchor="middle" font-size="27" font-weight="700" fill="#172b3a">Landmark restoration pipeline</text>
+<text x="600" y="72" text-anchor="middle" font-size="15" font-weight="400" fill="#617181">Reference generation and landmark prediction are separate stages</text>
+<rect x="45" y="175" width="170" height="92" rx="12" fill="#f5f8fa" stroke="#8aa0ad" stroke-width="2"/>
+<text x="130.0" y="214.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Face crop</text>
+<text x="130.0" y="239.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">masked input</text>
+<line x1="215" y1="221" x2="275" y2="221" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="275" y="155" width="235" height="132" rx="12" fill="#eef5fb" stroke="#2f6fb3" stroke-width="2"/>
+<text x="392.5" y="214.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">ORFormer</text>
+<text x="392.5" y="239.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">VQ-VAE + ViT</text>
+<line x1="510" y1="221" x2="570" y2="221" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="570" y="175" width="230" height="92" rx="12" fill="#eef5fb" stroke="#2f6fb3" stroke-width="2"/>
+<text x="685.0" y="214.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">Reference</text>
+<text x="685.0" y="239.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">edge heatmaps</text>
+<line x1="800" y1="221" x2="870" y2="221" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="870" y="155" width="180" height="132" rx="12" fill="#fff4e9" stroke="#d2691e" stroke-width="2"/>
+<text x="960.0" y="214.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">HGNet</text>
+<text x="960.0" y="239.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">crop + reference</text>
+<line x1="1050" y1="221" x2="1095" y2="221" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="1095" y="175" width="90" height="92" rx="12" fill="#eef8f1" stroke="#2e8b57" stroke-width="2"/>
+<text x="1140.0" y="214.0" text-anchor="middle" font-size="18" font-weight="700" fill="#172b3a">478</text>
+<text x="1140.0" y="239.0" text-anchor="middle" font-size="14" font-weight="400" fill="#617181">landmarks</text>
+<line x1="130" y1="267" x2="130" y2="362" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<line x1="130" y1="362" x2="905" y2="362" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<line x1="905" y1="362" x2="905" y2="287" stroke="#47606f" stroke-width="2.4" marker-end="url(#arrow)"/>
+<text x="510" y="350" text-anchor="middle" font-size="14" font-weight="700" fill="#617181">masked face crop</text>
+<text x="600" y="440" text-anchor="middle" font-size="18" font-weight="700" fill="#a24d20">Output is landmark coordinates — no photorealistic face is reconstructed</text>
+</svg>

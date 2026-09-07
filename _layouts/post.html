@@ -17,6 +17,10 @@ layout: page
   <div class="c-article__main">
     {{ content }}
   </div>
+  <!-- Post Series -->
+  {% if page.series and page.series_order %}
+  {% include series_nav.html %}
+  {% endif %}
   <!-- Related Posts -->
   {% include related_posts.html %}
   <!-- Previous / Next Buttons -->
