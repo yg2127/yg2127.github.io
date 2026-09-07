@@ -1,5 +1,20 @@
 [
   {
+    "line": "*   abb898b Merge remote-tracking branch 'origin/main'"
+  },
+  {
+    "line": "|\\  "
+  },
+  {
+    "line": "| * 8e1a28a chore: update commits data"
+  },
+  {
+    "line": "* | a31bd59 docs: publish OcclusionGateNet seven-part series"
+  },
+  {
+    "line": "|/  "
+  },
+  {
     "line": "* f18f326 docs: add seven-part OcclusionGateNet draft series"
   },
   {
@@ -79,14 +94,5 @@
   },
   {
     "line": "* c7a59db feat: add CNN 2~6강 blog posts and Deep Learning category"
-  },
-  {
-    "line": "* 0afa162 chore: update commits data"
-  },
-  {
-    "line": "* e46e698 feat: add SQL 입문 2강 blog post"
-  },
-  {
-    "line": "* 4217030 chore: update commits data"
   }
 ]
