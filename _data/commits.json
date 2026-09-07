@@ -1,5 +1,11 @@
 [
   {
+    "line": "* f18f326 docs: add seven-part OcclusionGateNet draft series"
+  },
+  {
+    "line": "* cd5d67d chore: update commits data"
+  },
+  {
     "line": "* e5013af docs: add PyTorch study series"
   },
   {
@@ -82,11 +88,5 @@
   },
   {
     "line": "* 4217030 chore: update commits data"
-  },
-  {
-    "line": "* ea2284c feat: replace Python posts with Obsidian-based content and add subcategory toggle"
-  },
-  {
-    "line": "* 4e95e3d chore: update commits data"
   }
 ]
