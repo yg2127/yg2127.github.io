@@ -1,5 +1,11 @@
 [
   {
+    "line": "* e5013af docs: add PyTorch study series"
+  },
+  {
+    "line": "* 5d02396 chore: update commits data"
+  },
+  {
     "line": "* 1e054ef fix: TabPFN 글 문체 정리 — 예고편식 소제목을 내용 요약으로, 해설자 어미를 완료형으로"
   },
   {
@@ -82,11 +88,5 @@
   },
   {
     "line": "* 4e95e3d chore: update commits data"
-  },
-  {
-    "line": "* cd3b9d1 feat: add SQL 입문 1강 blog post"
-  },
-  {
-    "line": "* e973aaf chore: update commits data"
   }
 ]
