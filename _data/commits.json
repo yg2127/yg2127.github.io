@@ -1,5 +1,11 @@
 [
   {
+    "line": "* 6273141 docs: publish origin article and Git stack index"
+  },
+  {
+    "line": "* 4fcad67 chore: update commits data"
+  },
+  {
     "line": "* fd84f15 feat: add blog discovery tools and source-led drafts"
   },
   {
@@ -88,11 +94,5 @@
   },
   {
     "line": "* 889e903 fix: rename SQL post titles from \"SQL 입문\" to \"SQLite\""
-  },
-  {
-    "line": "* 9229481 chore: update commits data"
-  },
-  {
-    "line": "* 789e36c feat: add SQL 입문 3강 blog post"
   }
 ]
