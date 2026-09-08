@@ -6,6 +6,101 @@
     margin-bottom: 10rem; // 100px
 }
 
+/* Long paper reviews: keep tables and equations inside the reading column. */
+.c-article--paper-review {
+    .c-article__title {
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+    }
+
+    .toc {
+        font-size: 1.4rem;
+        line-height: 1.65;
+        max-height: 32rem;
+        overflow-y: auto;
+    }
+
+    .c-article__main {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            min-width: 6rem;
+            padding: 0.7rem 0.9rem;
+            vertical-align: top;
+        }
+
+        img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 48rem;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        a:has(> img) {
+            border-bottom: none;
+        }
+
+        p > em:only-child,
+        p:has(> a > img) > em {
+            display: block;
+            font-size: 0.85em;
+            line-height: 1.6;
+            color: #66757b;
+        }
+
+        mjx-container[display="true"] {
+            max-width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 0.4rem 0;
+        }
+
+        pre {
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        h2, h3 {
+            scroll-margin-top: 1.5rem;
+        }
+    }
+}
+
+.paper-series {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem 1rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid #e0ddd4;
+    border-radius: 6px;
+    background: #f8f6f0;
+    font-size: 0.85em;
+    line-height: 1.6;
+
+    &__label {
+        font-weight: 700;
+        color: #53636b;
+    }
+
+    a[aria-current="page"] {
+        color: #0d2b35;
+        font-weight: 700;
+        border-bottom: 2px solid #0067fb;
+    }
+}
+
 .c-article__header {
     margin-bottom: 2rem; // 50px
     @media screen and (min-width: $bp__sm) {
@@ -133,4 +228,3 @@
   float: right;
   text-align: right;
 }
-

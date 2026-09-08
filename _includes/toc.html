@@ -42,7 +42,7 @@
 </style>
 
 <script>
-(function() {
+function buildArticleToc() {
   var toc = document.getElementById('toc-list');
   if (!toc) return;
   var article = document.querySelector('.c-article__main');
@@ -62,5 +62,10 @@
     li.appendChild(a);
     toc.appendChild(li);
   });
-})();
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', buildArticleToc, { once: true });
+} else {
+  buildArticleToc();
+}
 </script>
