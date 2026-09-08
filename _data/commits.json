@@ -1,5 +1,11 @@
 [
   {
+    "line": "* fd84f15 feat: add blog discovery tools and source-led drafts"
+  },
+  {
+    "line": "* b7931d4 chore: update commits data"
+  },
+  {
     "line": "* 991689e docs: publish CIGPose paper review and implementation guide"
   },
   {
@@ -88,11 +94,5 @@
   },
   {
     "line": "* 789e36c feat: add SQL 입문 3강 blog post"
-  },
-  {
-    "line": "* d276468 chore: update commits data"
-  },
-  {
-    "line": "* 6b4cba0 chore: add custom slash commands and allow .claude/commands/ in gitignore"
   }
 ]
