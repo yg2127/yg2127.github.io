@@ -15,6 +15,7 @@ permalink: /stack/
 {% elsif cat_name == "Streamlit" %}{% assign icon = "devicon-streamlit-plain colored" %}
 {% elsif cat_name == "SQL" %}{% assign icon = "devicon-azuresqldatabase-plain colored" %}
 {% elsif cat_name == "Deep Learning" %}{% assign icon = "devicon-pytorch-original colored" %}
+{% elsif cat_name == "Git" %}{% assign icon = "devicon-git-plain colored" %}
 {% endif %}
   <a class="c-stack__card" href="{{ '/stack/' | append: slug | append: '/' | prepend: site.baseurl }}">
     <span class="c-stack__icon">{% if icon != "" %}<i class="{{ icon }}"></i>{% else %}<i class="devicon-devicon-plain"></i>{% endif %}</span>
