@@ -1,0 +1,11 @@
+{% assign record_years = include.entries | group_by_exp: 'entry', 'entry.date | date: "%Y"' %}
+{% for record_year in record_years %}
+<section class="record-year" aria-labelledby="year-{{ record_year.name }}">
+  <h2 class="c-archives__year" id="year-{{ record_year.name }}">{{ record_year.name }}</h2>
+  {% assign record_months = record_year.items | group_by_exp: 'entry', 'entry.date | date: "%m"' %}
+  {% for record_month in record_months %}
+  <h3 class="c-archives__month">{{ record_month.name }}월</h3>
+  <ul class="c-archives__list">{% for entry in record_month.items %}{% include record.html entry=entry %}{% endfor %}</ul>
+  {% endfor %}
+</section>
+{% endfor %}

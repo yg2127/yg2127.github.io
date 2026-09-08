@@ -5,7 +5,10 @@ description: "reshape, cat, ones_like, lstsq와 행렬곱을 따라가며 텐서
 date: 2026-09-07 09:00:00 +0900
 category: "Deep Learning"
 subcategory: "PyTorch"
-tags: pytorch, tensor, linear-regression, least-squares, matrix
+tags: [pytorch, tensor, linear-regression, least-squares, matrix]
+series: pytorch
+series_title: "PyTorch 직접 구현하기"
+series_order: 1
 comments: true
 ---
 

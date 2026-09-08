@@ -1,7 +1,6 @@
 # Site settings
 title: "yg log --graph --oneline --all"
-description: > 
-  프로그래밍, AI논문 리뷰, 툴, 환경등을 소개합니다.
+description: "프로그래밍, AI논문 리뷰, 툴, 환경등을 소개합니다."
 
 author: yugeon
 email: 23010524@sju.ac.kr
@@ -20,10 +19,29 @@ include: [_pages]
 markdown: kramdown
 permalink: /:year/:month/:title.html
 
+collections:
+  notes:
+    output: true
+    permalink: /notes/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      kind: article
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: post
+      kind: note
+      comments: false
+
 sass:
     style: compressed
 
-exclude: [vendor]
+exclude: [vendor, docs, AUTHORING.md, AGENTS.md, open-terminal.command, scripts]
 
 plugins:
   - jekyll-seo-tag
@@ -31,4 +49,3 @@ plugins:
 
 # Header background style: "terminal" (git log) or "grass" (contribution graph)
 header_style: "terminal"
-

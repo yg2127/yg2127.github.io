@@ -4,8 +4,6 @@ title: Stack
 permalink: /stack/
 ---
 
-<p class="c-stack__intro">기술 스택별로 글을 모아두었습니다. 카드를 클릭하면 해당 스택의 글 목록으로 이동합니다.</p>
-
 <div class="c-stack__grid">
 {% assign sorted_categories = site.categories | sort %}
 {% for category in sorted_categories %}

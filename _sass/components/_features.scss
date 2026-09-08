@@ -1,0 +1,99 @@
+/* Optional features use the original Paper palette and typography.
+   Do not override body, .u-container or the animated header here. */
+[hidden] { display: none !important; }
+.sr-only { @include visually-hidden; }
+.skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 10000; padding: 1rem; background: white; font-size: 1.6rem; transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+:where(a, button, input, select, summary):focus-visible { outline: 2px solid $c-accent__blue; outline-offset: 3px; }
+.search-form { margin-bottom: 1.6rem; }
+.search-field { display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid $c-base__1; padding: .6rem 0; }
+.search-field input { flex: 1; min-width: 0; border: 0; background: transparent; padding: .7rem 0; color: $c-base__02; font: inherit; font-size: 1.6rem; }
+.search-field input:focus { outline-offset: 1px; }
+.search-field button { color: $c-accent__blue; border: 0; background: none; padding: .7rem .5rem; font: inherit; font-size: 1.5rem; cursor: pointer; }
+.record-toolbar { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 1rem; }
+.record-filters { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.record-filters button { border: 0; border-bottom: 2px solid transparent; background: none; padding: .6rem 0; font: inherit; font-size: 1.4rem; color: $c-base__01; cursor: pointer; }
+.record-filters button[aria-pressed='true'] { color: $c-accent__blue; border-bottom-color: $c-accent__blue; }
+.record-sort { display: flex; gap: .5rem; align-items: baseline; font-size: 1.2rem; color: $c-base__00; }
+.record-sort select { font: inherit; font-size: 1.3rem; border: 0; padding: .4rem 0; color: $c-base__01; background: white; cursor: pointer; }
+.search-status { font-size: 1.3rem; color: $c-base__00; line-height: 1.6; margin: 1.5rem 0 2.8rem; }
+.search-status:empty { margin-top: 0; }
+.record-year { margin-bottom: 4rem; }
+.c-archives__item.record { display: flex; align-items: baseline; flex-wrap: nowrap; gap: 2rem; }
+.record__body { flex: 1; min-width: 0; }
+.record__body h3 { overflow-wrap: anywhere; }
+.record__body h3 a { display: inline; }
+.record__body .record__description { font-size: 1.5rem; color: gray; margin-top: .5rem; line-height: 1.6; }
+.record .record__date { font-size: 1.5rem; white-space: nowrap; }
+.record__body .record__updated, .record__body .record__kind { font-size: 1.2rem; line-height: 1.6; color: $c-base__00; margin-top: .6rem; }
+.record__body .record__updated { color: $c-accent__blue; }
+.record-flat-title { @include fs--heading-2; margin-bottom: 2rem; }
+.empty-state { padding: 3rem 0; border-top: $m-border; border-bottom: $m-border; font-size: 1.6rem; color: $c-base__01; line-height: 1.8; }
+.empty-state__title { color: $c-base__02; margin-bottom: .8rem; }
+.empty-state button { font: inherit; color: $c-accent__blue; border: $m-border; background: white; padding: .5rem 1rem; margin-top: 1.5rem; cursor: pointer; }
+.notes-empty a { margin-top: 1.5rem; }
+.notice { font-size: 1.5rem; line-height: 1.7; margin: 2rem 0; }
+.learning-guide { padding: 1.8rem; margin-bottom: 2rem; background: #f8f6f0; border: $m-border; border-radius: .4rem; scroll-margin-top: 2rem; }
+.learning-guide h2 { @include fs--heading-3; margin-bottom: 1.2rem; }
+.learning-guide p { color: $c-base__01; font-size: 1.6rem; line-height: 1.7; margin-bottom: 1.2rem; }
+.learning-guide a { font-size: 1.5rem; }
+.path-steps { padding-left: 2rem; font-size: 1.6rem; line-height: 1.7; }
+.path-steps li { margin-bottom: 1rem; padding-left: .5rem; }
+.path-steps span { display: block; font-size: 1.4rem; color: $c-base__01; }
+.topic-group { margin-top: 3.5rem; }
+.article-kind { flex-basis: 100%; font-size: 1.4rem; line-height: 1.6; margin-top: 1rem; color: $c-base__01; }
+.article-modified { display: inline-block; margin-left: 1.3rem; font-size: .85em; }
+.article-update-note { flex-basis: 100%; font-size: 1.3rem; line-height: 1.6; color: $c-base__00; margin-top: .6rem; }
+.c-tags .c-tag a { color: inherit; font-size: 1.2rem; display: inline; }
+.c-tags .c-tag a::after { content: none; }
+.series-context { font-size: 1.4rem; line-height: 1.7; margin-bottom: 2rem; }
+.article-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.article-reading { min-width: 0; }
+.article-toc { padding: 1.5rem 1.8rem; background: #f8f6f0; border: $m-border; border-radius: .4rem; }
+.article-toc details { padding: 0; margin: 0; border: 0; }
+.article-toc details summary { padding: 0; font-size: 1.4rem; color: $c-base__02; }
+.article-toc nav { max-height: 32rem; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; margin-top: 1rem; }
+.article-toc ol { list-style: none; padding: 0; margin: 0; }
+.article-toc a { display: block; color: $c-base__01; font-size: 1.3rem; line-height: 1.6; padding: .55rem .7rem; border-left: 2px solid transparent; overflow-wrap: anywhere; }
+.article-toc a::after { content: none; }
+.article-toc a:hover { color: $c-accent__blue; }
+.article-toc a[aria-current] { color: $c-accent__blue; border-left-color: $c-accent__blue; background: #eef3ff; }
+.article-toc .toc-h3 a { font-size: 1.2rem; padding-left: 1.8rem; }
+.article-reading .c-article__main { overflow-wrap: break-word; }
+.article-reading .c-article__main h2, .article-reading .c-article__main h3 { scroll-margin-top: 2rem; }
+.article-reading .c-article__main table { display: block; width: 100%; overflow-x: auto; }
+.article-reading .c-article__main mjx-container[display='true'] { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: .5rem 0; }
+.article-reading .c-article__main mjx-container:not([display='true']) { display: inline-block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: .15em 0; vertical-align: middle; }
+.article-reading .heading-permalink { font-size: .7em; margin-left: .7rem; border: 0; opacity: 0; }
+.article-reading :is(h2, h3):hover .heading-permalink, .article-reading .heading-permalink:focus { opacity: 1; }
+.highlighter-rouge { position: relative; }
+.copy-btn { position: absolute; top: .5rem; right: .5rem; border: 1px solid #758b8e; border-radius: .3rem; background: $c-base__02; color: white; font-size: 1.1rem; padding: .3rem .8rem; cursor: pointer; }
+.article-reading pre { padding-top: 3.5rem; }
+.article-reading .series-nav { font-size: 1.4rem; line-height: 1.7; }
+.article-reading .series-nav__title { font-size: 1.8rem; line-height: 1.6; scroll-margin-top: 2rem; }
+.article-reading .related-posts { margin: 3rem 0; padding-top: 1.5rem; border-top: $m-border; }
+.article-reading .related-posts__title { font-size: 1.8rem; line-height: 1.6; margin-bottom: 1rem; }
+.article-reading .related-posts__list { list-style: none; }
+.article-reading .related-posts__list li { display: flex; justify-content: space-between; gap: 1rem; font-size: 1.5rem; line-height: 1.6; margin-bottom: .8rem; }
+.article-reading .related-posts__list small { font-size: 1.2rem; white-space: nowrap; }
+#progress-bar { position: fixed; top: 0; left: 0; width: 0; height: 3px; background: $c-accent__blue; z-index: 9999; }
+#back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 4rem; height: 4rem; border: 0; border-radius: 50%; background: $c-accent__blue; color: white; font-size: 1.8rem; cursor: pointer; z-index: 100; }
+@media (min-width: 1280px) {
+  /* Put the TOC in the unused margin without widening or shifting the article. */
+  .article-layout { width: calc(100% + 25rem); grid-template-columns: minmax(0, 1fr) 22rem; column-gap: 3rem; }
+  .article-reading { grid-column: 1; grid-row: 1; }
+  .article-toc { grid-column: 2; grid-row: 1; position: sticky; top: 3rem; padding: 0; border: 0; background: transparent; }
+  .article-toc nav { max-height: calc(100vh - 12rem); }
+}
+@media (max-width: 600px) {
+  .c-archives__item.record { flex-direction: column; gap: .8rem; }
+  .record .record__date { font-size: 1.3rem; }
+  .record-filters { gap: 1.2rem; }
+  .article-modified { display: block; margin-left: 0; }
+  .article-reading .heading-permalink { opacity: 1; }
+  .article-reading .related-posts__list li { display: block; }
+  .article-reading .related-posts__list small { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-header-bg__scroll { animation: none !important; }
+}

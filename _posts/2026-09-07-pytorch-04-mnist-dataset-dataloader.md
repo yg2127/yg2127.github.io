@@ -5,7 +5,10 @@ description: "이미지 한 장이 (1, 28, 28) 텐서가 되고 DataLoader에서
 date: 2026-09-07 09:30:00 +0900
 category: "Deep Learning"
 subcategory: "PyTorch"
-tags: pytorch, mnist, dataset, dataloader, batch
+tags: [pytorch, mnist, dataset, dataloader, batch]
+series: pytorch
+series_title: "PyTorch 직접 구현하기"
+series_order: 4
 comments: true
 ---
 

@@ -1,0 +1,11 @@
+---
+layout: page
+title: Archive
+permalink: /archive/
+---
+<section class="c-archives">
+  <h1 class="c-archives__year">Archive</h1>
+  {% assign entries = site.posts | concat: site.notes | sort: 'date' | reverse %}
+  <p class="c-stack__intro">작성일 순으로 모은 {{ entries.size }}개의 기록입니다.</p>
+  {% include chronological_records.html entries=entries %}
+</section>

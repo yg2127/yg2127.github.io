@@ -5,7 +5,7 @@ description: "DMD의 시간 구간 라벨부터 clean/masked 짝 데이터와 Me
 date: 2026-09-07
 category: "Project"
 subcategory: "Computer Vision / DMS"
-tags: deep-learning, computer-vision, dms, dataset, pseudo-label
+tags: [deep-learning, computer-vision, dms, dataset, pseudo-label]
 comments: true
 series: occlusiongatenet
 series_order: 2

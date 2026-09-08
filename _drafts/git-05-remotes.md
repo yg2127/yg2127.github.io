@@ -1,0 +1,118 @@
+---
+layout: post
+title: "Git 5편: origin·upstream과 push·pull의 원격 저장소 관리"
+description: "origin을 원격 저장소 자체가 아니라 이름으로 이해하고, push -u가 만든 upstream 관계를 따라가며 fetch와 pull의 역할을 다시 정리한 기록"
+date: 2026-09-08 09:00:00 +0900
+category: Git
+tags:
+  - git
+  - github
+  - remote
+  - upstream
+  - push
+  - pull
+series: git-basics
+series_title: Git 학습 기록
+series_order: 5
+permalink: /2026/09/git-05-remotes.html
+comments: false
+---
+
+## origin이 이름으로 보인 순간
+
+Git 명령을 정리한 `GITHUB1` 노트에 이런 문장이 남아 있다.
+
+> 레포 링크를 변수이름으로 등록해서 push할 때 편하게 하는 것 예를 들어 git remote add origin https://github.com/yg2127/DEEPDIVE.git 를 하면 push할 때 git push -u origin main (와우! 이게 이 뜻이였구나)
+
+이 글의 출발점은 괄호 안의 짧은 감탄이다. 이 메모에서는 긴 저장소 URL에 붙인 이름과 다음 명령의 짧은 `origin`이 하나의 관계로 이어진다.
+
+```bash
+git remote add origin https://github.com/yg2127/DEEPDIVE.git
+git push -u origin main
+```
+
+첫 줄은 URL이 긴 원격 저장소에 `origin`이라는 짧은 이름을 붙인다. `origin`은 GitHub를 뜻하는 예약어가 아니다. 이름은 `backup`이나 `company`로 정해도 된다. 다만 `git clone`이 기본적으로 복제한 원본을 `origin`이라고 등록하기 때문에 관례처럼 자주 보일 뿐이다. Git 공식 문서도 remote를 “추적할 저장소들의 집합”으로 설명하고, clone의 `--origin` 옵션으로 이 이름을 바꿀 수 있게 한다. ([git-remote](https://git-scm.com/docs/git-remote), [git-clone](https://git-scm.com/docs/git-clone))
+
+이렇게 보니 두 번째 줄도 단어별로 읽힌다. `origin`이라는 원격으로 로컬 `main` 브랜치를 push한다. 여기까지가 전송 대상이고, `-u`는 그 뒤의 반복을 줄이는 설정이다.
+
+## upstream이라는 관계
+
+같은 `GITHUB1` 노트에는 바로 다음 생각도 적혀 있다.
+
+> 참고로 -u를 쓴다는건 origin main을 기억한다는 뜻이니까 git push만 입력해도 된다!
+
+“기억한다”는 표현은 꽤 좋은 출발점이었다. 더 정확히 말하면 `git push -u origin main`의 `-u`는 `--set-upstream`이고, 이 명령으로 push한 로컬 `main`이 추적할 원격 브랜치를 설정한다. 다른 브랜치를 checkout한 상태에서 실행해도 대상은 명령에 적은 로컬 `main`이다. 이후 `main`에서 `git status`를 실행하면 두 브랜치가 얼마나 앞서거나 뒤처졌는지 볼 수 있고, 인자를 생략한 `git pull`도 어느 원격 브랜치를 가져와 통합할지 알 수 있다. `git push`의 생략 동작은 `push.default` 같은 설정의 영향도 받으므로, 단순히 두 단어를 문자열로 외운다고 설명하는 것보다는 “push한 로컬 브랜치에 추적 관계를 설정한다”고 이해하는 편이 정확하다. ([git-push](https://git-scm.com/docs/git-push))
+
+이번 글을 쓰면서 빈 bare 저장소를 원격으로 만들고 새 실험을 진행했다.
+
+```bash
+git remote add origin /tmp/yg-git-remotes.C77wiZ/remote.git
+git push -u origin main
+git branch -vv
+git config --get-regexp '^branch\.main\.'
+```
+
+```text
+branch 'main' set up to track 'origin/main'.
+* main 6938824 [origin/main] init
+branch.main.remote origin
+branch.main.merge refs/heads/main
+```
+
+노트의 “기억한다”는 말이 설정 파일에서는 두 줄로 드러났다. 어느 remote를 볼지와 그 remote의 어느 branch를 합칠지가 저장된다. `origin/main`은 원격 서버의 브랜치를 매 순간 직접 들여다보는 창이라기보다, fetch나 성공한 push로 마지막 갱신한 원격 추적 정보다.
+
+## push가 거절된 뒤에 보인 것
+
+`GITHUB2` 노트에는 다음과 같은 결론이 있었다.
+
+> 원격 레포 / 로컬 레포가 다르면 로컬저장소에서 push가 되지 않는다
+
+방향은 맞지만 “다르다”만으로는 부족하다. 로컬에 원격에 없는 새 커밋이 있는 것은 평범한 push 직전 상태다. 문제가 되는 대표적인 경우는 원격 브랜치에 내가 아직 갖고 있지 않은 커밋이 생겨, 내 push가 원격 기록을 fast-forward로 전진시킬 수 없을 때다.
+
+이를 확인하려고 같은 원격을 두 곳에 복제했다. 한쪽이 먼저 push한 뒤 다른 쪽에서도 별도 커밋을 만들었다. 두 번째 저장소에서 push하자 다음처럼 거절됐다.
+
+```text
+! [rejected]        main -> main (fetch first)
+error: failed to push some refs to '/tmp/yg-git-remotes.C77wiZ/remote.git'
+```
+
+흥미로운 점은 push 직전 `git status -sb`가 `ahead 1`만 표시했다는 것이다. 아직 fetch하지 않았으므로 로컬의 `origin/main`이 실제 원격보다 오래된 위치에 머물러 있었기 때문이다. `git fetch origin`을 실행한 뒤에야 상태가 달라졌다.
+
+```text
+## main...origin/main [ahead 1, behind 1]
+
+* bd5aceb (HEAD -> main) local work from alice
+| * d1fac96 (origin/main) update from bob
+|/
+* 6938824 init
+```
+
+여기서 fetch의 역할이 선명해진다. 원격의 새 객체와 ref 정보를 가져와 `origin/main`을 갱신하지만, 내 `main`에는 아직 합치지 않는다. 그래서 먼저 그래프와 차이를 살펴볼 여유가 생긴다. ([git-fetch](https://git-scm.com/docs/git-fetch))
+
+## pull을 저장 버튼처럼 쓰지 않기
+
+같은 `GITHUB2` 노트의 마지막 문장은 아주 솔직하다.
+
+> 결론 = git push 하기전에 뭔가 쌔하면 git pull 하면 됨(ctrl + s 맹키로)
+
+지금은 이 결론을 그대로 사용하지 않는다. `git pull`은 먼저 fetch하고, 가져온 원격 브랜치를 현재 브랜치에 통합한다. 이 통합은 설정과 옵션에 따라 fast-forward, merge, rebase, squash가 될 수 있다. 따라서 pull은 상태만 새로 읽는 저장 버튼이 아니라, 현재 브랜치의 기록을 바꿀 수 있는 명령이다. ([git-pull](https://git-scm.com/docs/git-pull))
+
+이번 실험처럼 양쪽에 커밋이 하나씩 생긴 상태에서 `git pull --ff-only`를 실행하면 Git은 다음처럼 멈춘다.
+
+```text
+fatal: Not possible to fast-forward, aborting.
+```
+
+이 실패는 오히려 유용하다. 자동으로 기록 모양을 정하기 전에 상황을 확인하게 해준다. 나는 원격 상태가 의심될 때 다음 순서로 읽는 편이 더 이해하기 쉽다고 정리했다.
+
+```bash
+git status -sb
+git fetch origin
+git log --graph --decorate --oneline --all
+```
+
+그다음 두 기록을 어떻게 합칠지 판단해 `git merge`, `git rebase`, 또는 프로젝트 정책에 맞는 `git pull` 옵션을 고르면 된다.
+
+원문에는 `git pull -u origin 브랜치`도 적혀 있었다. 이번 Mac의 Git 2.51.2에서는 `git pull -u`가 지원되지 않았다. 더구나 `-u`는 명령마다 같은 뜻도 아니다. `git push -u`는 upstream을 설정하지만, `git fetch -u`는 내부 사용을 위한 `--update-head-ok`의 축약이다. 그래서 축약 옵션 하나를 따로 외우기보다 현재 명령의 도움말과 역할을 함께 확인해야 한다.
+
+처음에는 `origin`이 URL에 붙인 이름이라는 연결에서 감탄이 나왔다. 이번에는 그 연결을 한 단계 더 밀어 보았다. upstream은 로컬 브랜치가 비교할 원격 브랜치를 정하고, `origin/main`은 마지막으로 확인한 원격 상태를 가리킨다. 그러니 push가 막혔을 때 필요한 것은 반사적인 pull 한 번이 아니라, 내가 아는 원격 상태를 먼저 갱신하고 두 갈래의 기록을 읽는 일이다.

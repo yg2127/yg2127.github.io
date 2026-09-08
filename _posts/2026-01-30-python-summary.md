@@ -5,7 +5,7 @@ description: "print부터 외장 함수까지, 파이썬 입문 핵심을 코드
 date: 2026-01-30
 category: "Python"
 subcategory: "입문"
-tags: python, cheatsheet, summary
+tags: [python, cheatsheet, summary]
 comments: true
 ---
 

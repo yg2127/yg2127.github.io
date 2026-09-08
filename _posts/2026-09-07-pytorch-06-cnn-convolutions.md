@@ -5,7 +5,10 @@ description: "Conv2d의 채널과 공간 크기를 계산하고, pooling을 학�
 date: 2026-09-07 09:50:00 +0900
 category: "Deep Learning"
 subcategory: "PyTorch"
-tags: pytorch, cnn, conv2d, strided-convolution, depthwise-convolution
+tags: [pytorch, cnn, conv2d, strided-convolution, depthwise-convolution]
+series: pytorch
+series_title: "PyTorch 직접 구현하기"
+series_order: 6
 comments: true
 ---
 

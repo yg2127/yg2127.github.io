@@ -5,7 +5,7 @@ description: "좌표 교체와 feature fusion은 다른 gate다. 48프레임 입
 date: 2026-09-07
 category: "Project"
 subcategory: "Computer Vision / DMS"
-tags: deep-learning, multimodal, fusion, gating, dms
+tags: [deep-learning, multimodal, fusion, gating, dms]
 comments: true
 series: occlusiongatenet
 series_order: 5

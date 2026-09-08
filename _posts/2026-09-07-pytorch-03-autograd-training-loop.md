@@ -5,7 +5,10 @@ description: "zero_grad, backward, step이 나뉜 이유와 detach, clone, no_gr
 date: 2026-09-07 09:20:00 +0900
 category: "Deep Learning"
 subcategory: "PyTorch"
-tags: pytorch, autograd, backward, detach, optimizer
+tags: [pytorch, autograd, backward, detach, optimizer]
+series: pytorch
+series_title: "PyTorch 직접 구현하기"
+series_order: 3
 comments: true
 ---
 

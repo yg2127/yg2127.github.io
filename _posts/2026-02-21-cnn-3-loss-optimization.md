@@ -5,7 +5,10 @@ description: "SVM Loss는 왜 max를 쓰는지, Cross Entropy의 log는 뭘 의�
 date: 2026-02-21
 category: "Deep Learning"
 subcategory: "CNN"
-tags: deep-learning, cnn, loss-function, optimization
+tags: [deep-learning, cnn, loss-function, optimization]
+series: cnn
+series_title: "CNN 기초"
+series_order: 3
 comments: true
 ---
 

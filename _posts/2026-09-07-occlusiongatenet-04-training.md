@@ -5,7 +5,7 @@ description: "정답 좌표 재점검, VQ codebook collapse, warm-start, alpha �
 date: 2026-09-07
 category: "Project"
 subcategory: "Computer Vision / DMS"
-tags: deep-learning, training, debugging, vq-vae, orformer
+tags: [deep-learning, training, debugging, vq-vae, orformer]
 comments: true
 series: occlusiongatenet
 series_order: 4

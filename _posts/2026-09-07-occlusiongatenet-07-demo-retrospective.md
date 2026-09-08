@@ -5,7 +5,7 @@ description: "두 카메라와 48프레임 버퍼, 얼굴 검출 실패의 fallb
 date: 2026-09-07
 category: "Project"
 subcategory: "Computer Vision / DMS"
-tags: deep-learning, dms, deployment, capstone, retrospective
+tags: [deep-learning, dms, deployment, capstone, retrospective]
 comments: true
 series: occlusiongatenet
 series_order: 7

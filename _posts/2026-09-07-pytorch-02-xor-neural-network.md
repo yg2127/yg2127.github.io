@@ -5,7 +5,10 @@ description: "nn.Module, Linear, forward와 BCEWithLogitsLoss를 XOR 분류 코�
 date: 2026-09-07 09:10:00 +0900
 category: "Deep Learning"
 subcategory: "PyTorch"
-tags: pytorch, neural-network, xor, nn-module, linear-layer
+tags: [pytorch, neural-network, xor, nn-module, linear-layer]
+series: pytorch
+series_title: "PyTorch 직접 구현하기"
+series_order: 2
 comments: true
 ---
 

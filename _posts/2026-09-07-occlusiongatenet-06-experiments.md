@@ -5,7 +5,7 @@ description: "Clean/masked macro-F1, 재학습 ablation, 융합 비교와 통계
 date: 2026-09-07
 category: "Project"
 subcategory: "Computer Vision / DMS"
-tags: deep-learning, experiment, ablation, evaluation, dms
+tags: [deep-learning, experiment, ablation, evaluation, dms]
 comments: true
 series: occlusiongatenet
 series_order: 6

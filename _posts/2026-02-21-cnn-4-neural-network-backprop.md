@@ -5,7 +5,10 @@ description: "Chain Rule이 왜 필요한지 처음에 몰랐다 — 역전파�
 date: 2026-02-21
 category: "Deep Learning"
 subcategory: "CNN"
-tags: deep-learning, cnn, neural-network, backpropagation
+tags: [deep-learning, cnn, neural-network, backpropagation]
+series: cnn
+series_title: "CNN 기초"
+series_order: 4
 comments: true
 ---
 

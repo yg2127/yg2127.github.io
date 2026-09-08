@@ -5,7 +5,10 @@ description: "MLP의 hidden dimension부터 CrossEntropyLoss, train/eval, 평균
 date: 2026-09-07 09:40:00 +0900
 category: "Deep Learning"
 subcategory: "PyTorch"
-tags: pytorch, mnist, mlp, training-loop, evaluation
+tags: [pytorch, mnist, mlp, training-loop, evaluation]
+series: pytorch
+series_title: "PyTorch 직접 구현하기"
+series_order: 5
 comments: true
 ---
 

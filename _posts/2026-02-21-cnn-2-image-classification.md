@@ -5,7 +5,10 @@ description: "KNN이 이미지에서 왜 안 되는지, Linear Classification이
 date: 2026-02-21
 category: "Deep Learning"
 subcategory: "CNN"
-tags: deep-learning, cnn, image-classification, knn
+tags: [deep-learning, cnn, image-classification, knn]
+series: cnn
+series_title: "CNN 기초"
+series_order: 2
 comments: true
 ---
 

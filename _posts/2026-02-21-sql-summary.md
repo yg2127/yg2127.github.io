@@ -4,7 +4,7 @@ title: "SQLite 총정리 - 코드와 정의 치트시트"
 description: "CRUD부터 JOIN·윈도우 함수까지, SQLite 입문 핵심을 코드와 정의로 한 번에 복습"
 date: 2026-02-21
 category: "SQL"
-tags: sql, sqlite, cheatsheet, summary
+tags: [sql, sqlite, cheatsheet, summary]
 comments: true
 ---
 

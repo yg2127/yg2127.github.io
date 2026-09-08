@@ -1,0 +1,12 @@
+{% assign entry = include.entry %}
+<li class="c-archives__item record">
+  <div class="record__body">
+    <h3><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></h3>
+    {% if entry.description %}<p class="record__description">{{ entry.description | escape }}</p>{% endif %}
+    {% if entry.kind == 'note' or entry.kind == 'reflection' or entry.status %}
+    <p class="record__kind">{% if entry.kind == 'note' %}짧은 노트{% elsif entry.kind == 'reflection' %}회고{% endif %}{% if entry.status %} · {{ entry.status }}{% endif %}</p>
+    {% endif %}
+    {% if entry.last_modified_at %}<p class="record__updated">수정 {{ entry.last_modified_at | date: '%Y.%m.%d' }}{% if entry.update_note %} · {{ entry.update_note | escape }}{% endif %}</p>{% endif %}
+  </div>
+  <p class="record__date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: '%b %-d, %Y' }}</time></p>
+</li>

@@ -4,16 +4,21 @@ layout: page
 <article class="c-article{% if page.paper_review %} c-article--paper-review{% endif %}">
   <header class="c-article__header">
     <h1 class="c-article__title">{{ page.title }}</h1>
-    <p class="c-article__time"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time> · {% include reading_time.html %}</p>
+    <p class="article-kind"{% if page.kind == 'article' and page.status == nil %} hidden{% endif %}>{% case page.kind %}{% when 'note' %}<a href="{{ '/notes/' | relative_url }}">짧은 노트</a>{% when 'reflection' %}회고{% else %}해설글{% endcase %}{% if page.status %} · {{ page.status }}{% endif %}</p>
+    <p class="c-article__time">작성 <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time> · {% include reading_time.html %}{% if page.last_modified_at %}<span class="article-modified">수정 <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%Y.%m.%d" }}</time></span>{% endif %}</p>
+    {% if page.update_note %}<p class="article-update-note">{{ page.update_note }}</p>{% endif %}
   </header>
-  <!-- Post Tags -->
-  <ul class="c-tags">
-    {% for tag in page.tags %}
-    <li class="c-tag">{{ tag }}</li>
-    {% endfor %}
+  {% if page.tags.size > 0 %}
+  <ul class="c-tags" aria-label="태그">
+    {% for tag in page.tags %}<li class="c-tag"><a href="{{ '/' | relative_url }}?q={{ tag | url_encode }}">{{ tag }}</a></li>{% endfor %}
   </ul>
-  <!-- Table of Contents -->
-  {% include toc.html %}
+  {% endif %}
+  {% if page.series and page.series_order %}
+  <p class="series-context"><a href="#series-nav-title">{{ page.series_title | default: page.series }} · {{ page.series_order }}편 <span aria-hidden="true">↓</span></a></p>
+  {% endif %}
+  <div class="article-layout">
+    {% include toc.html %}
+    <div class="article-reading">
   <div class="c-article__main">
     {{ content }}
   </div>
@@ -61,4 +66,6 @@ layout: page
     </script>
   </div>
   {% endif %}
+    </div>
+  </div>
 </article>

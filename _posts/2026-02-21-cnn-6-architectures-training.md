@@ -5,7 +5,10 @@ description: "VGGNet은 왜 3x3을 고집하고, ResNet의 skip connection은 �
 date: 2026-02-21
 category: "Deep Learning"
 subcategory: "CNN"
-tags: deep-learning, cnn, resnet, vggnet, transfer-learning
+tags: [deep-learning, cnn, resnet, vggnet, transfer-learning]
+series: cnn
+series_title: "CNN 기초"
+series_order: 6
 comments: true
 ---
 

@@ -5,7 +5,7 @@ description: "우수상을 받은 캡스톤 프로젝트 OcclusionGateNet. 눈�
 date: 2026-09-07
 category: "Project"
 subcategory: "Computer Vision / DMS"
-tags: deep-learning, computer-vision, dms, occlusion, capstone
+tags: [deep-learning, computer-vision, dms, occlusion, capstone]
 comments: true
 series: occlusiongatenet
 series_order: 1

@@ -5,7 +5,10 @@ description: "필터가 뭘 보는 건지, 출력 크기는 왜 그렇게 계산
 date: 2026-02-21
 category: "Deep Learning"
 subcategory: "CNN"
-tags: deep-learning, cnn, convolution, pooling
+tags: [deep-learning, cnn, convolution, pooling]
+series: cnn
+series_title: "CNN 기초"
+series_order: 5
 comments: true
 ---
 

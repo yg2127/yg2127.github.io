@@ -1,0 +1,18 @@
+---
+layout: page
+title: Notes
+description: 작은 발견, 해결한 오류, 아직 답을 찾는 질문을 짧게 남깁니다.
+permalink: /notes/
+---
+<section class="c-archives">
+  <h1 class="c-archives__year">Notes</h1>
+  {% assign entries = site.posts | concat: site.notes | where: 'kind', 'note' | sort: 'date' | reverse %}
+  {% if entries.size > 0 %}
+    {% include chronological_records.html entries=entries %}
+  {% else %}
+  <div class="empty-state notes-empty">
+    <p>아직 작성된 노트가 없습니다.</p>
+    <a href="{{ '/' | relative_url }}">다른 기록 읽어보기 →</a>
+  </div>
+  {% endif %}
+</section>

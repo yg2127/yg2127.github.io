@@ -5,7 +5,7 @@ description: "VQ codebook, regular·messenger 표현, alpha 혼합, reference he
 date: 2026-09-07
 category: "Project"
 subcategory: "Computer Vision / DMS"
-tags: deep-learning, transformer, vq-vae, orformer, facial-landmarks
+tags: [deep-learning, transformer, vq-vae, orformer, facial-landmarks]
 comments: true
 series: occlusiongatenet
 series_order: 3
