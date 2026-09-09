@@ -10,6 +10,9 @@ tags: [deep-learning, cigpose, paper-review, pytorch, graph, pose-estimation]
 comments: true
 paper_review: true
 cigpose_part: 2
+series: cigpose
+series_title: "CIGPose 논문 읽기"
+series_order: 2
 image: /assets/cigpose/figure-05-cigpose-architecture.png
 ---
 
@@ -419,8 +422,6 @@ $$
 내가 이 구현에서 가장 오래 헷갈렸던 것은 **‘어디를 바꿨는가’, ‘어디에서 loss를 계산하는가’, ‘어디까지 gradient가 흐르는가’가 모두 다른 질문**이라는 점이었다. 세 개를 나눠 보고 나니, 정준 임베딩이 어떻게 학습되는지도 훨씬 선명해졌다.
 
 인과적 목표와 특징 치환의 관계는 여전히 따져볼 부분이 남는다. 하지만 적어도 모델이 실제로 하는 계산을 분리해서 설명할 수는 있다. 논문의 이름에 담긴 해석과 코드의 연산을 함께 보되, 한쪽을 다른 쪽의 증명으로 대신하지 않는 것이 이 리뷰에서 가져가고 싶은 읽기 방식이다.
-
-{% include cigpose-series.html %}
 
 ## 참고 자료와 코드 위치
 

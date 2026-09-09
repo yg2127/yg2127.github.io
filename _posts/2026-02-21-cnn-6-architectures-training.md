@@ -8,7 +8,7 @@ subcategory: "CNN"
 tags: [deep-learning, cnn, resnet, vggnet, transfer-learning]
 series: cnn
 series_title: "CNN 기초"
-series_order: 6
+series_order: 5
 comments: true
 ---
 

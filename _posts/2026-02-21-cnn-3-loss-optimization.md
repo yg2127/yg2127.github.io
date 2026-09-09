@@ -8,7 +8,7 @@ subcategory: "CNN"
 tags: [deep-learning, cnn, loss-function, optimization]
 series: cnn
 series_title: "CNN 기초"
-series_order: 3
+series_order: 2
 comments: true
 ---
 

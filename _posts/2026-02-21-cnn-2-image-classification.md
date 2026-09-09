@@ -8,7 +8,7 @@ subcategory: "CNN"
 tags: [deep-learning, cnn, image-classification, knn]
 series: cnn
 series_title: "CNN 기초"
-series_order: 2
+series_order: 1
 comments: true
 ---
 

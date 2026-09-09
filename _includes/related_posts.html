@@ -15,7 +15,7 @@
   <ul class="related-posts__list">
     {% for post in related %}
     <li>
-      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      <a href="{{ post.url | prepend: site.baseurl }}">{% if post.series and post.series_order %}{{ post.series_order }}. {% endif %}{{ post.title }}</a>
       <small>{{ post.date | date: "%b %-d, %Y" }}</small>
     </li>
     {% endfor %}

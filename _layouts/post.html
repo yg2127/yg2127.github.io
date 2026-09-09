@@ -3,7 +3,7 @@ layout: page
 ---
 <article class="c-article{% if page.paper_review %} c-article--paper-review{% endif %}">
   <header class="c-article__header">
-    <h1 class="c-article__title">{% if page.series_numbered and page.series_order %}<span class="article-series-number">{{ page.series_order }}.</span> {% endif %}{{ page.title }}</h1>
+    <h1 class="c-article__title">{% if page.series and page.series_order %}<span class="article-series-number">{{ page.series_order }}.</span> {% endif %}{{ page.title }}</h1>
     <p class="article-kind"{% if page.kind == 'article' and page.status == nil %} hidden{% endif %}>{% case page.kind %}{% when 'note' %}<a href="{{ '/notes/' | relative_url }}">짧은 노트</a>{% when 'reflection' %}회고{% else %}해설글{% endcase %}{% if page.status %} · {{ page.status }}{% endif %}</p>
     <p class="c-article__time">작성 <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time> · {% include reading_time.html %}{% if page.last_modified_at %}<span class="article-modified">수정 <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%Y.%m.%d" }}</time></span>{% endif %}</p>
     {% if page.update_note %}<p class="article-update-note">{{ page.update_note }}</p>{% endif %}
@@ -14,7 +14,8 @@ layout: page
   </ul>
   {% endif %}
   {% if page.series and page.series_order and page.series_intro == nil %}
-  <p class="series-context"><a href="#series-nav-title">{{ page.series_title | default: page.series }} · {{ page.series_order }}편 <span aria-hidden="true">↓</span></a></p>
+  {% assign current_series_posts = site.posts | where: 'series', page.series %}
+  <p class="series-context"><a href="#series-nav-title">{{ page.series_title | default: page.series }} · {{ page.series_order }} / {{ current_series_posts.size }} <span aria-hidden="true">↓</span></a></p>
   {% endif %}
   <div class="article-layout">
     {% include toc.html %}
@@ -38,14 +39,14 @@ layout: page
     <div class="wrapper" id="left">
       <small><b>Previous</b> {{page.previous.date | date: "%b %-d, %Y"}}</small>
       <br>
-      <a class="no-hov" href="{{ page.previous.url | prepend: site.baseurl }}">&laquo; {{page.previous.title}}</a>
+      <a class="no-hov" href="{{ page.previous.url | prepend: site.baseurl }}">&laquo; {% if page.previous.series and page.previous.series_order %}{{ page.previous.series_order }}. {% endif %}{{page.previous.title}}</a>
     </div>
     {% endif %}
     {% if page.next.url %}
     <div class="wrapper" id="right">
       <small>{{page.next.date | date: "%b %-d, %Y"}} <b>Next</b></small>
       <br>
-      <a class="no-hov" href="{{ page.next.url | prepend: site.baseurl }}">{{page.next.title}} &raquo;</a>
+      <a class="no-hov" href="{{ page.next.url | prepend: site.baseurl }}">{% if page.next.series and page.next.series_order %}{{ page.next.series_order }}. {% endif %}{{page.next.title}} &raquo;</a>
     </div>
     {% endif %}
   </div>

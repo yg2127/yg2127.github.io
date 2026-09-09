@@ -8,7 +8,7 @@ sitemap: false
 {% for entry in entries %}
   {
     "title": {{ entry.title | jsonify }},
-    "seriesOrder": {% if entry.series_numbered %}{{ entry.series_order | jsonify }}{% else %}null{% endif %},
+    "seriesOrder": {% if entry.series and entry.series_order %}{{ entry.series_order | jsonify }}{% else %}null{% endif %},
     "url": {{ entry.url | relative_url | jsonify }},
     "description": {{ entry.description | default: '' | jsonify }},
     "date": {{ entry.date | date: '%Y.%m.%d' | jsonify }},

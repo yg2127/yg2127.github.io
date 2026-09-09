@@ -32,13 +32,13 @@
     {% if series_previous %}
     <a class="series-nav__previous" href="{{ series_previous.url | prepend: site.baseurl }}">
       <small>이전 편</small>
-      <span>&laquo; {{ series_previous.title }}</span>
+      <span>&laquo; {{ series_previous.series_order }}. {{ series_previous.title }}</span>
     </a>
     {% endif %}
     {% if series_next %}
     <a class="series-nav__next" href="{{ series_next.url | prepend: site.baseurl }}">
       <small>다음 편</small>
-      <span>{{ series_next.title }} &raquo;</span>
+      <span>{{ series_next.series_order }}. {{ series_next.title }} &raquo;</span>
     </a>
     {% endif %}
   </div>

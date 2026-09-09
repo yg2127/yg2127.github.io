@@ -1,7 +1,7 @@
 {% assign entry = include.entry %}
 <li class="c-archives__item record">
   <div class="record__body">
-    <h3><a href="{{ entry.url | relative_url }}">{% if entry.series_numbered and entry.series_order %}<span class="record__series-order">{{ entry.series_order }}.</span> {% endif %}{{ entry.title | escape }}</a></h3>
+    <h3><a href="{{ entry.url | relative_url }}">{% if entry.series and entry.series_order %}<span class="record__series-order">{{ entry.series_order }}.</span> {% endif %}{{ entry.title | escape }}</a></h3>
     {% if entry.description %}<p class="record__description">{{ entry.description | escape }}</p>{% endif %}
     {% if entry.kind == 'note' or entry.kind == 'reflection' or entry.status %}
     <p class="record__kind">{% if entry.kind == 'note' %}짧은 노트{% elsif entry.kind == 'reflection' %}회고{% endif %}{% if entry.status %} · {{ entry.status }}{% endif %}</p>

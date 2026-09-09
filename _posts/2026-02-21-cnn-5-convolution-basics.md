@@ -8,7 +8,7 @@ subcategory: "CNN"
 tags: [deep-learning, cnn, convolution, pooling]
 series: cnn
 series_title: "CNN 기초"
-series_order: 5
+series_order: 4
 comments: true
 ---
 
