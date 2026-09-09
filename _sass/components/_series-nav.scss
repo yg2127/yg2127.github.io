@@ -12,11 +12,13 @@
 .series-nav__title {
     margin: 0 0 0.8rem;
     color: $c-base__02;
-    font-size: 1.1rem;
+    font-size: 1.7rem;
 }
 
 .series-nav__list {
-    margin: 0 0 1.2rem 1.5rem;
+    margin: 0 0 1.2rem;
+    padding: 0;
+    list-style: none;
 }
 
 .series-nav__list li {
@@ -61,4 +63,55 @@
 
 .series-nav__next {
     text-align: right;
+}
+
+.series-bridge {
+    margin: 0 0 2.4rem;
+    padding: 1rem 1.2rem;
+    border-left: 3px solid $c-accent__blue;
+    background: rgba($c-accent__blue, 0.035);
+    font-size: 1.6rem;
+    line-height: 1.65;
+}
+
+.series-bridge__position {
+    margin: 0 0 0.8rem;
+    font-weight: 700;
+}
+
+.series-bridge dl,
+.series-bridge dd,
+.series-bridge dd p {
+    margin: 0;
+}
+
+.series-bridge__step + .series-bridge__step {
+    margin-top: 0.85rem;
+}
+
+.series-bridge dt {
+    margin-bottom: 0.15rem;
+    color: $c-base__01;
+    font-size: 1.3rem;
+}
+
+.series-bridge dd a {
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.series-bridge__step--current dd {
+    color: $c-base__02;
+    font-weight: 500;
+}
+
+.stack-series__title {
+    margin: 1.5rem 0 1rem;
+    color: $c-base__01;
+    font-size: 1.6rem;
+}
+
+.record__series-order,
+.article-series-number {
+    font-variant-numeric: tabular-nums;
 }

@@ -3,7 +3,7 @@ layout: page
 ---
 <article class="c-article{% if page.paper_review %} c-article--paper-review{% endif %}">
   <header class="c-article__header">
-    <h1 class="c-article__title">{{ page.title }}</h1>
+    <h1 class="c-article__title">{% if page.series_numbered and page.series_order %}<span class="article-series-number">{{ page.series_order }}.</span> {% endif %}{{ page.title }}</h1>
     <p class="article-kind"{% if page.kind == 'article' and page.status == nil %} hidden{% endif %}>{% case page.kind %}{% when 'note' %}<a href="{{ '/notes/' | relative_url }}">짧은 노트</a>{% when 'reflection' %}회고{% else %}해설글{% endcase %}{% if page.status %} · {{ page.status }}{% endif %}</p>
     <p class="c-article__time">작성 <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time> · {% include reading_time.html %}{% if page.last_modified_at %}<span class="article-modified">수정 <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%Y.%m.%d" }}</time></span>{% endif %}</p>
     {% if page.update_note %}<p class="article-update-note">{{ page.update_note }}</p>{% endif %}
@@ -13,12 +13,15 @@ layout: page
     {% for tag in page.tags %}<li class="c-tag"><a href="{{ '/' | relative_url }}?q={{ tag | url_encode }}">{{ tag }}</a></li>{% endfor %}
   </ul>
   {% endif %}
-  {% if page.series and page.series_order %}
+  {% if page.series and page.series_order and page.series_intro == nil %}
   <p class="series-context"><a href="#series-nav-title">{{ page.series_title | default: page.series }} · {{ page.series_order }}편 <span aria-hidden="true">↓</span></a></p>
   {% endif %}
   <div class="article-layout">
     {% include toc.html %}
     <div class="article-reading">
+  {% if page.series and page.series_order and page.series_intro %}
+  {% include series_bridge.html %}
+  {% endif %}
   <div class="c-article__main">
     {{ content }}
   </div>
@@ -29,6 +32,7 @@ layout: page
   <!-- Related Posts -->
   {% include related_posts.html %}
   <!-- Previous / Next Buttons -->
+  {% unless page.series and page.series_order %}
   <div class="pagenav">
     {% if page.previous.url %}
     <div class="wrapper" id="left">
@@ -45,6 +49,7 @@ layout: page
     </div>
     {% endif %}
   </div>
+  {% endunless %}
   <!-- Giscus Comments -->
   {% if page.comments != false %}
   <div class="post-comments" style="margin-top: 2rem;">

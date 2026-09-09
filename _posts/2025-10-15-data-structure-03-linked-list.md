@@ -8,9 +8,31 @@ tags: [data-structure, c, linked-list, pointer, debugging]
 series: data-structure
 series_title: "자료구조 학습 기록"
 series_order: 3
+series_numbered: true
+series_intro: "A와 B 사이에 X를 넣는 예제로 노드, 포인터, 이중 연결리스트와 안전한 대입 순서를 익힌다."
+series_from: "재귀에서 호출별 상태를 분리해 읽었고, 이번에는 메모리의 노드별 주소와 연결 상태를 분리해 읽는다."
+series_to: "한 리스트의 연결 불변식을 세운 뒤 다음 편에서는 정렬된 연결리스트 두 개를 동시에 순회한다."
+last_modified_at: 2026-09-09
+update_note: "기초 개념과 예제를 보강하고 시리즈 흐름을 연결"
 permalink: /2026/09/data-structure-03-linked-list.html
 comments: false
 ---
+
+## 값과 다음 위치를 함께 저장하는 구조
+
+`A, B` 두 값을 순서대로 저장하고 그 사이에 `X`를 넣는 문제를 생각해 보자. 배열은 연속된 칸에 값을 놓으므로 중간 삽입 때 뒤의 원소를 옮겨야 한다. **연결리스트**는 떨어져 있는 저장 공간을 주소로 이어, 주변 연결만 바꿔 삽입할 수 있다.
+
+각 저장 단위를 **노드**라고 한다. 노드는 데이터와 다른 노드의 메모리 주소를 담는다. 주소를 저장하는 변수가 **포인터**다. 단일 연결리스트는 다음 노드 주소 `next`만, **이중 연결리스트**는 이전 주소 `prev`와 다음 주소 `next`를 모두 가진다.
+
+```c
+typedef struct Node {
+    char data;
+    struct Node *prev;
+    struct Node *next;
+} Node;
+```
+
+목표는 `A <-> B`를 `A <-> X <-> B`로 바꾸는 것이다. 네 포인터가 모두 맞아야 하며, 대입 도중에 아직 읽어야 할 주소를 먼저 덮어쓰면 다음 줄의 의미가 달라진다.
 
 ## 포인터 네 줄에서 시작된 오류
 

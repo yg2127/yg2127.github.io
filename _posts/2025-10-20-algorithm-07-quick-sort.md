@@ -8,11 +8,28 @@ tags: [algorithm, quick-sort, partition, sanitizer, c]
 series: algorithms
 series_title: "알고리즘 학습 기록"
 series_order: 7
+series_numbered: true
+series_intro: "pivot과 partition의 계약을 정의하고 Lomuto·Hoare·3-way의 재귀 경계를 구분한다."
+series_from: "앞과 같은 분할 정복을 쓰되, 정렬 후 합치는 대신 pivot을 기준으로 먼저 구간을 나눈다."
+series_to: "partition에서 후보 구간을 줄인 경험을 정렬 배열의 탐색 구간을 절반씩 버리는 이진 탐색으로 연결한다."
+last_modified_at: 2026-09-09
+update_note: "기초 개념과 예제를 보강하고 시리즈 흐름을 연결"
 permalink: /2026/09/algorithm-07-quick-sort.html
 comments: false
 ---
 
 ## pivot을 고른 뒤 남는 문제
+
+퀵 정렬도 분할 정복 알고리즘이다. 배열에서 기준값인 pivot을 하나 고르고, partition으로 작은 값과 큰 값을 나눈 뒤, 아직 정렬되지 않은 양쪽 구간에 같은 작업을 반복한다. 길이가 0이나 1인 구간은 그대로 끝난다.
+
+```text
+[ 4, 1, 3, 2 ]  pivot=3
+       partition
+[ 1, 2 | 3 | 4 ]
+  재귀      재귀
+```
+
+이 그림은 결과의 개념을 보여 줄 뿐, 모든 partition이 pivot을 가운데 최종 위치에 둔다는 뜻은 아니다. partition의 **계약**은 반환값이 무엇을 보장하고 다음 재귀가 어느 구간을 받아야 하는지 정한 약속이다. Lomuto와 Hoare를 섞으면 종료 조건과 경계가 깨지는 이유가 여기에 있다.
 
 퀵 정렬 노트에는 pivot을 정한 뒤 왼쪽의 `i`가 큰 값을, 오른쪽의 `j`가 작은 값을 찾으면 서로 바꾸고 두 인덱스가 교차할 때까지 반복한다고 적혀 있다. 별도의 「lomulto」와 「Horae」 노트에는 두 partition 코드도 남아 있다.
 
@@ -73,5 +90,3 @@ while (i <= gt) {
 - 개인 노트 「5주차 - Merge Sort, Quick Sort」, 「lomulto」, 「Horae」, 2025-10-19~20
 - [`Week5 Merge, Quick Sort/5-2.c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week5%20Merge%2C%20Quick%20Sort/5-2.c)
 - [`Week5 Merge, Quick Sort/0930-2.c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week5%20Merge%2C%20Quick%20Sort/0930-2.c)
-
-[이전 글: 새 노드 없이 합쳐도 호출 스택은 남는다](/2026/09/algorithm-06-merge-sort.html) · [다음 글: 이진 탐색은 못 찾았을 때의 답도 정한다](/2026/09/algorithm-08-binary-search.html)

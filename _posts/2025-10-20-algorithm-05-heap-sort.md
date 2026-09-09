@@ -8,11 +8,27 @@ tags: [algorithm, heap-sort, in-place, c]
 series: algorithms
 series_title: "알고리즘 학습 기록"
 series_order: 5
+series_numbered: true
+series_intro: "최대 힙의 루트를 배열 끝으로 보내며 힙 구간과 정렬 완료 구간의 경계를 추적한다."
+series_from: "앞에서 필요한 만큼 루트를 꺼냈다면, 이번에는 모든 원소를 꺼내 배열 전체를 정렬한다."
+series_to: "힙 정렬의 제자리 교환과 달리, 합병 정렬은 정렬된 두 구간을 합치는 방식으로 순서를 만든다."
+last_modified_at: 2026-09-09
+update_note: "기초 개념과 예제를 보강하고 시리즈 흐름을 연결"
 permalink: /2026/09/algorithm-05-heap-sort.html
 comments: false
 ---
 
 ## n을 저장하고 줄이고 되돌리는 메모
+
+힙 정렬은 최대 힙의 루트가 현재 최댓값이라는 성질을 사용한다. 먼저 배열 전체를 최대 힙으로 만들고, 루트와 힙의 마지막 원소를 바꾼다. 최댓값은 배열 끝의 최종 위치에 도착하고, 남은 앞부분만 다시 최대 힙으로 고친다.
+
+```text
+하나의 배열
+[ 아직 힙으로 다룰 구간 | 이미 정렬된 구간 ]
+                         ^ 경계가 왼쪽으로 이동
+```
+
+`down-heap`은 전체 배열이 아니라 경계 왼쪽만 봐야 한다. 정렬 완료 구간을 다시 힙에 넣으면 확정한 최댓값이 앞으로 돌아올 수 있다.
 
 힙 정렬 노트에는 전역 변수 `n`을 다루는 순서가 거듭 적혀 있다.
 
@@ -65,5 +81,3 @@ for (int size = n; size >= 2; size--) {
 - 개인 노트 「4주차 - 힙정렬」, 2025-10-20
 - 개인 노트 「c언어 암기사항」, 2025-12-15
 - [`Week4(Heap_Sort)/0922-1.c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week4%28Heap_Sort%29/0922-1.c)
-
-[이전 글: k번째 값만 필요하면 전부 정렬하지 않는다](/2026/09/algorithm-04-kth.html) · [다음 글: 새 노드 없이 합쳐도 호출 스택은 남는다](/2026/09/algorithm-06-merge-sort.html)

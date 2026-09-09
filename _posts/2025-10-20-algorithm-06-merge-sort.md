@@ -8,11 +8,29 @@ tags: [algorithm, merge-sort, linked-list, recursion, c]
 series: algorithms
 series_title: "알고리즘 학습 기록"
 series_order: 6
+series_numbered: true
+series_intro: "분할 정복과 연결 리스트의 포인터를 정의하고 분할·재귀·합병의 순서를 익힌다."
+series_from: "앞의 힙 정렬이 최댓값을 하나씩 확정했다면, 합병 정렬은 작은 정렬 결과 둘을 합쳐 큰 결과를 만든다."
+series_to: "같은 분할 정복 구조에서 별도 합병 대신 pivot을 기준으로 제자리 분할하는 퀵 정렬로 이어진다."
+last_modified_at: 2026-09-09
+update_note: "기초 개념과 예제를 보강하고 시리즈 흐름을 연결"
 permalink: /2026/09/algorithm-06-merge-sort.html
 comments: false
 ---
 
 ## 더미 헤더가 필요하다고 적은 이유
+
+합병 정렬은 입력을 절반으로 나누고, 각 절반을 재귀적으로 정렬한 뒤, 정렬된 두 결과를 합치는 분할 정복 알고리즘이다. 재귀 호출은 같은 함수를 더 작은 입력에 적용하고, 길이가 0이나 1이면 이미 정렬됐다고 보고 돌아온다.
+
+이 글의 입력은 단일 연결 리스트다. 각 노드는 값과 다음 노드의 주소 `next`를 가진다. 배열처럼 `a[mid]`로 중간에 바로 갈 수 없고, `next`를 따라가야 한다.
+
+```text
+head
+ ↓
+[4|next] → [1|next] → [3|next] → [2|NULL]
+```
+
+`head`는 첫 실제 노드를 가리키는 포인터다. 더미 헤더는 값으로 쓰지 않는 노드를 맨 앞에 하나 두어, 첫 노드를 붙이는 경우도 이후 노드를 붙이는 경우와 같은 코드로 처리하게 한다.
 
 합병 정렬 실습 파일 첫 줄에는 강한 문장이 남아 있다.
 
@@ -77,5 +95,3 @@ tail = tail->next;
 - 개인 노트 「5주차 - Merge Sort, Quick Sort」, 2025-10-20
 - [`Week5 Merge, Quick Sort/5-1-1.c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week5%20Merge%2C%20Quick%20Sort/5-1-1.c)
 - [`Week5 Merge, Quick Sort/0930-1.c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week5%20Merge%2C%20Quick%20Sort/0930-1.c)
-
-[이전 글: 정렬된 자리는 힙에서 빼낸다](/2026/09/algorithm-05-heap-sort.html) · [다음 글: 퀵 정렬의 경계는 한 칸도 그냥 넘길 수 없다](/2026/09/algorithm-07-quick-sort.html)

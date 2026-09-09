@@ -1,0 +1,13 @@
+{% assign stack_series = include.entries | group_by: 'series' %}
+{% for stack_group in stack_series %}
+  {% if stack_group.name != '' %}
+    {% assign ordered_entries = stack_group.items | sort: 'series_order' %}
+    <section class="stack-series" aria-label="{{ ordered_entries.first.series_title | escape }}">
+      {% if include.nested %}<h3 class="stack-series__title">{{ ordered_entries.first.series_title | escape }}</h3>{% else %}<h2 class="stack-series__title">{{ ordered_entries.first.series_title | escape }}</h2>{% endif %}
+      <ul class="c-archives__list">{% for entry in ordered_entries %}{% include record.html entry=entry %}{% endfor %}</ul>
+    </section>
+  {% else %}
+    {% assign ordered_entries = stack_group.items | sort: 'date' %}
+    <ul class="c-archives__list">{% for entry in ordered_entries %}{% include record.html entry=entry %}{% endfor %}</ul>
+  {% endif %}
+{% endfor %}

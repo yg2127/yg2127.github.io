@@ -8,11 +8,23 @@ tags: [algorithm, binary-search, lower-bound, c]
 series: algorithms
 series_title: "알고리즘 학습 기록"
 series_order: 8
+series_numbered: true
+series_intro: "정렬 배열과 탐색 구간의 불변식을 정의하고 exact search·predecessor·lower bound의 계약을 구분한다."
+series_from: "앞에서 partition이 후보 구간을 나눴다면, 이번에는 정렬된 순서를 이용해 답이 없는 절반을 반복해서 버린다."
+series_to: "배열의 연속 인덱스 대신 정점과 간선을 저장해야 하는 그래프 표현으로 자료 접근 문제를 확장한다."
+last_modified_at: 2026-09-09
+update_note: "기초 개념과 예제를 보강하고 시리즈 흐름을 연결"
 permalink: /2026/09/algorithm-08-binary-search.html
 comments: false
 ---
 
 ## 비어 있는 Dictionary 아래의 세 코드
+
+탐색은 찾으려는 값인 **key**가 자료 안에 있는지, 있다면 어디에 있는지 찾는 작업이다. 선형 탐색은 앞에서부터 하나씩 비교해 정렬되지 않은 배열에서도 동작하지만 최악에는 모든 원소를 본다. 이진 탐색은 **오름차순으로 정렬된 배열**에서 중간값과 key를 비교해 답이 있을 수 없는 절반을 버린다.
+
+예를 들어 `[1, 3, 5, 7, 9]`에서 7을 찾을 때 중간값 5보다 key가 크므로 왼쪽의 `1, 3, 5`는 더 볼 필요가 없다. 남은 `[7, 9]`에서 다시 중간을 고른다. 입력이 정렬되지 않았다면 “왼쪽은 모두 더 작다”는 근거가 사라져 같은 방식으로 버릴 수 없다.
+
+Dictionary는 key로 값을 찾는 추상 자료형이다. 배열로 구현할 수도, 트리나 해시 테이블로 구현할 수도 있다. 이 글에서는 정렬 배열 위에서 key의 위치나 삽입 경계를 찾는 이진 탐색에 범위를 좁힌다.
 
 6주차 노트에는 비교 정렬의 하한을 정리한 다음 `Dictionary`라는 제목만 남아 있다. 설명은 거의 비어 있지만 저장소에는 이진 탐색 코드 세 개가 있다. 하나는 재귀 탐색, 하나는 lower bound, 하나는 Y/N 답으로 구간을 줄이는 문제다.
 
@@ -34,7 +46,7 @@ comments: false
 
 ## lower bound가 지키는 두 구간
 
-이번 재현 구현은 반열린 구간 `[left, right)`를 사용한다.
+이번 재현 구현은 반열린 구간 `[left, right)`를 사용한다. 왼쪽 끝 `left`는 포함하고 오른쪽 끝 `right`는 포함하지 않는다는 뜻이다. 원소가 4개인 배열 전체는 `[0, 4)`로 적으며, 실제로 읽을 수 있는 인덱스는 0, 1, 2, 3이다. `left == right`이면 남은 원소가 없는 빈 구간이다.
 
 ```c
 int lower_bound(const int *a, int n, int key) {
@@ -69,5 +81,3 @@ predecessor는 반대 방향의 경계를 찾는다. `A[mid] <= key`이면 mid�
 - 개인 노트 「6주차 - Dictionary(사전 , 선형탐색 & 이진탐색)」, 2025-10-13
 - [`Week6 Dictionary/1013-1.c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week6%20Dictionary/1013-1.c)
 - [`Week6 Dictionary/1013-2.c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week6%20Dictionary/1013-2.c)
-
-[이전 글: 퀵 정렬의 경계는 한 칸도 그냥 넘길 수 없다](/2026/09/algorithm-07-quick-sort.html) · [다음 글: 그래프의 저장 방식이 탐색 비용을 바꾼다](/2026/09/algorithm-09-graph-storage.html)

@@ -14,14 +14,14 @@ layout: page
     {% if subcat %}
     <section class="topic-group">
       <h2 class="c-archives__month">{{ subcat }}</h2>
-      {% assign subposts = posts | where: 'subcategory', subcat | sort: 'title' %}
-      <ul class="c-archives__list">{% for entry in subposts %}{% include record.html entry=entry %}{% endfor %}</ul>
+      {% assign subposts = posts | where: 'subcategory', subcat %}
+      {% include stack_records.html entries=subposts nested=true %}
     </section>
     {% endif %}
   {% endfor %}
   {% assign nosub = posts | where_exp: 'p', 'p.subcategory == nil' %}
   {% if nosub.size > 0 %}
-  <ul class="c-archives__list">{% for entry in nosub %}{% include record.html entry=entry %}{% endfor %}</ul>
+  {% include stack_records.html entries=nosub %}
   {% endif %}
   {% endif %}
 </section>

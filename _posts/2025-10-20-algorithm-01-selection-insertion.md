@@ -8,11 +8,21 @@ tags: [algorithm, sorting, selection-sort, insertion-sort, c]
 series: algorithms
 series_title: "알고리즘 학습 기록"
 series_order: 1
+series_numbered: true
+series_intro: "선택 정렬과 삽입 정렬이 배열을 나누는 방식과 반복 불변식을 작은 배열로 익힌다."
+series_from: "정렬 알고리즘을 처음 읽기 위한 출발점으로, 배열·인덱스·비교·교환부터 시작한다."
+series_to: "정렬된 구간을 유지하는 생각을 부모와 자식의 순서를 유지하는 힙으로 확장한다."
+last_modified_at: 2026-09-09
+update_note: "기초 개념과 예제를 보강하고 시리즈 흐름을 연결"
 permalink: /2026/09/algorithm-01-selection-insertion.html
 comments: false
 ---
 
 ## 들어가며
+
+정렬은 여러 값을 정해진 순서로 다시 배치하는 작업이다. 이 글에서는 정수 배열을 작은 값부터 큰 값 순서로 만드는 오름차순 정렬을 다룬다. 배열의 위치 번호인 **인덱스**는 0부터 세며, `arr[i]`는 번호가 `i`인 칸의 값이다. 비교는 두 값의 순서를 알아내며, 교환은 두 칸의 값을 맞바꾼다.
+
+예를 들어 `[4, 2, 3]`을 정렬하면 `[2, 3, 4]`가 된다. 중요한 것은 결과만이 아니라 매 단계에서 배열의 어느 구간이 이미 정렬됐고 어느 구간이 아직 남았는지 구분하는 일이다.
 
 삽입 정렬을 구현한 코드에는 이런 주석이 남아 있다.
 
@@ -109,5 +119,3 @@ void insertion_sort(int arr[], int n) {
 - [`Week2/0908-2(insertion).c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week2/0908-2%28insertion%29.c)
 - [`Week2/0908-3(time_compare).c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week2/0908-3%28time_compare%29.c)
 - [이번 글의 선택·삽입 정렬 전수 검증 코드](/assets/code/algorithm-study/01-selection-insertion.c)
-
-[다음 글: 힙은 한 경로만 고쳐도 된다](/2026/09/algorithm-02-heap.html)

@@ -1,0 +1,37 @@
+{% assign bridge_posts = site.posts | where: 'series', page.series | sort: 'series_order' %}
+{% assign bridge_previous = false %}
+{% assign bridge_next = false %}
+{% assign bridge_found = false %}
+{% for bridge_post in bridge_posts %}
+  {% if bridge_found %}
+    {% assign bridge_next = bridge_post %}
+    {% break %}
+  {% elsif bridge_post.url == page.url %}
+    {% assign bridge_found = true %}
+  {% else %}
+    {% assign bridge_previous = bridge_post %}
+  {% endif %}
+{% endfor %}
+<nav class="series-bridge" aria-label="시리즈 읽기 흐름">
+  <p class="series-bridge__position"><a href="#series-nav-title">{{ page.series_title | escape }} · {{ page.series_order }} / {{ bridge_posts.size }}</a></p>
+  <dl>
+    <div class="series-bridge__step">
+      <dt>{% if bridge_previous %}이전 글에서{% else %}시작하기 전에{% endif %}</dt>
+      <dd>
+        {% if bridge_previous %}<a rel="prev" href="{{ bridge_previous.url | relative_url }}">{{ bridge_previous.series_order }}. {{ bridge_previous.title | escape }}</a>{% endif %}
+        <p>{{ page.series_from | escape }}</p>
+      </dd>
+    </div>
+    <div class="series-bridge__step series-bridge__step--current">
+      <dt>이번 글에서</dt>
+      <dd><p>{{ page.series_intro | escape }}</p></dd>
+    </div>
+    <div class="series-bridge__step">
+      <dt>{% if bridge_next %}다음 글로{% else %}시리즈를 마치며{% endif %}</dt>
+      <dd>
+        {% if bridge_next %}<a rel="next" href="{{ bridge_next.url | relative_url }}">{{ bridge_next.series_order }}. {{ bridge_next.title | escape }}</a>{% endif %}
+        <p>{{ page.series_to | escape }}</p>
+      </dd>
+    </div>
+  </dl>
+</nav>

@@ -34,7 +34,8 @@
     const row = element('li', 'c-archives__item record');
     const body = element('div', 'record__body');
     const title = element('h3');
-    const link = element('a', '', entry.title);
+    const displayTitle = entry.seriesOrder ? `${entry.seriesOrder}. ${entry.title}` : entry.title;
+    const link = element('a', '', displayTitle);
     link.href = entry.url;
     title.append(link); body.append(title);
     let excerpt = entry.description;

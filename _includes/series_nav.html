@@ -20,7 +20,7 @@
     {% for series_post in series_posts %}
     <li{% if series_post.url == page.url %} class="series-nav__current" aria-current="page"{% endif %}>
       <a href="{{ series_post.url | prepend: site.baseurl }}">
-        <span class="series-nav__order">{{ series_post.series_order }}편</span>
+        <span class="series-nav__order">{{ series_post.series_order }}.</span>
         {{ series_post.title }}
       </a>
     </li>

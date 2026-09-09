@@ -8,9 +8,40 @@ tags: ["algorithm", "shortest-path", "dijkstra", "bellman-ford", "negative-cycle
 series: algorithms
 series_title: "알고리즘 학습 기록"
 series_order: 13
+series_numbered: true
+series_intro: "경로 비용과 완화를 작은 예제로 정의하고 Dijkstra와 Bellman-Ford의 적용 조건을 비교한다."
+series_from: "앞 편의 MST는 모든 정점을 잇는 간선 총합을 줄였다. 이번에는 출발점을 정하고 각 도착점까지 누적되는 경로 비용을 줄인다."
+series_to: "최단 경로의 완화는 이미 구한 작은 답으로 더 큰 답을 갱신한다. 마지막 편에서는 같은 구조를 부분문제와 점화식으로 일반화해 동적 계획법으로 연결한다."
+last_modified_at: 2026-09-09
+update_note: "기초 개념과 예제를 보강하고 시리즈 흐름을 연결"
 permalink: /2026/09/algorithm-13-shortest-path.html
 comments: false
 ---
+
+## 출발점에서 누적 비용을 최소화하는 문제
+
+입력은 방향 또는 무방향 가중 그래프와 출발 정점이다. 원하는 답은 출발점에서 각 정점까지 갈 수 있는 경로 중 가중치 합이 가장 작은 값이다.
+
+```text
+간선: 0→1(4), 0→2(1), 2→1(2)
+출발: 0
+0에서 1까지 직접 비용: 4
+0→2→1 비용: 1+2=3
+최단 거리 dist[1]: 3
+```
+
+**경로 비용**은 경로에 포함된 간선 가중치의 합이다. **최단 거리**는 가능한 경로 비용의 최솟값이고, 실제로 그 값을 만드는 정점 나열을 **최단 경로**라고 한다. 도달할 수 없는 정점에는 유한한 경로 비용이 없으므로 코드에서는 `INF` 같은 별도 상태를 둔다.
+
+최단 경로 알고리즘의 공통 연산은 **완화(relaxation)**다. 현재 `dist[u]`를 알고 있을 때 간선 `u→v`를 붙인 새 후보 `dist[u]+w(u,v)`가 기존 `dist[v]`보다 작으면 값을 바꾼다.
+
+| 식의 항 | 뜻 |
+|---|---|
+| `dist[u]` | 출발점에서 u까지 현재까지 알려진 최선의 비용 |
+| `w(u,v)` | u에서 v로 가는 마지막 간선 하나의 비용 |
+| `dist[u]+w(u,v)` | u를 거쳐 v에 도착하는 새 경로 후보 |
+| `dist[v]` | 지금까지 알고 있던 v의 최선 비용 |
+
+Dijkstra와 Bellman-Ford는 같은 완화를 사용한다. 차이는 어느 정점을 확정할 수 있는지, 모든 간선을 몇 번 다시 확인하는지다.
 
 ## 최단 경로가 없다는 말의 범위
 
@@ -105,4 +136,3 @@ V-1번 이후에도 도달 가능한 간선을 완화할 수 있다면 음수 �
 
 - 개인 노트 「14주차 최단경로」, 2025-12-15
 - [이번에 작성한 C 코드와 검증 전체](/assets/code/graph-study/graph_check.c): `dijkstra`, `bellman_ford`, `check_shortest_paths`
-- [다음 글: 같은 부분문제를 다시 풀지 않는다](/2026/09/algorithm-14-dp.html)
