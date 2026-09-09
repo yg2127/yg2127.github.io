@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "자료구조 3편: 이중 연결리스트의 삽입·삭제와 포인터 변경"
+title: "포인터를 바꾸면 다음 줄의 의미도 바뀐다"
 description: "포인터 대입 순서를 잘못 바꾸자 새 노드가 자기 자신을 가리켰다. 당시 디버깅 노트의 사고를 따라가며 이중 연결리스트의 삽입과 삭제 불변식을 정리한다."
-date: 2026-09-08 09:00:00 +0900
+date: 2025-10-15
 category: "Data Structure"
 tags: [data-structure, c, linked-list, pointer, debugging]
 series: data-structure
@@ -96,6 +96,8 @@ newnode->next->prev == newnode;
 ## 오늘 다시 실행해 본 결과
 
 노트에 적힌 분석을 확인하기 위해 이번에 위 상황만 떼어 낸 작은 C 프로그램을 만들었다. 2026년 9월 8일에 AddressSanitizer와 UndefinedBehaviorSanitizer를 켜고 실행한 결과다.
+
+[포인터 순서 재현 코드](/assets/code/data-structure-study/03-linked-list.c)도 함께 남겨 두었다.
 
 ```text
 bad: new.next==new true, A.next==new false, B.prev==new true

@@ -6,7 +6,9 @@ layout: page
   <h1 class="c-archives__year">{{ page.title }}</h1>
   {% if page.description %}<p class="c-stack__intro">{{ page.description }}</p>{% endif %}
   {% if content != '' %}<div class="topic-guide">{{ content }}</div>{% endif %}
-  {% assign posts = site.categories[page.category] | sort: 'date' %}
+  {% assign posts = site.categories[page.category] %}
+  {% if posts %}
+  {% assign posts = posts | sort: 'date' %}
   {% assign subcats = posts | map: 'subcategory' | uniq %}
   {% for subcat in subcats %}
     {% if subcat %}
@@ -20,5 +22,6 @@ layout: page
   {% assign nosub = posts | where_exp: 'p', 'p.subcategory == nil' %}
   {% if nosub.size > 0 %}
   <ul class="c-archives__list">{% for entry in nosub %}{% include record.html entry=entry %}{% endfor %}</ul>
+  {% endif %}
   {% endif %}
 </section>

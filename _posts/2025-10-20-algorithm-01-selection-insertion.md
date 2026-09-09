@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "알고리즘 1편: 선택 정렬과 삽입 정렬의 시간 복잡도와 실행시간"
+title: "삽입 정렬은 이미 정렬된 구간을 믿는다"
 description: "삽입 정렬에서 왜 앞부분을 끝까지 다시 보지 않아도 되는지, 당시의 의문과 작은 배열 추적을 통해 선택 정렬과 비교한다."
-date: 2026-09-08 09:00:00 +0900
+date: 2025-10-20
 category: "Algorithm"
 tags: [algorithm, sorting, selection-sort, insertion-sort, c]
 series: algorithms
@@ -108,3 +108,6 @@ void insertion_sort(int arr[], int n) {
 - [`Week2/2-2.c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week2/2-2.c)
 - [`Week2/0908-2(insertion).c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week2/0908-2%28insertion%29.c)
 - [`Week2/0908-3(time_compare).c`](https://github.com/yg2127/25-2_Algorithms/blob/8bc95230beafb8e1e3587349b9a98d163a011a96/Week2/0908-3%28time_compare%29.c)
+- [이번 글의 선택·삽입 정렬 전수 검증 코드](/assets/code/algorithm-study/01-selection-insertion.c)
+
+[다음 글: 힙은 한 경로만 고쳐도 된다](/2026/09/algorithm-02-heap.html)
